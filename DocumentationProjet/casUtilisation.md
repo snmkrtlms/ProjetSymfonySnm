@@ -35,7 +35,7 @@ c.	L’utilisateur peut consulter son calendrier de rdv
 
 
 ## **4.	UC04 - GÉRER LE JOURNAL DE BORD :**
-**Description :** l’utilisateur peut utiliser le journal de bord pour enregistrer ses habitudes d’hygiène dentaire, suivre l’évolution de son brossage, fixer des objectifs et recevoir des conseils 
+**Description :** l’utilisateur peut utiliser le journal de bord pour enregistrer ses habitudes d’hygiène dentaire, suivre l’évolution de son brossage et recevoir des conseils 
 
 **Liens :**    
       include – UC01 - S’authentifier   
@@ -65,7 +65,7 @@ c.	L’utilisateur peut consulter et mettre à jour ses habitudes d’hygiène d
 **Description :** l’utilisateur peut suivre l’évolution du brossage à l’aide d’un graphique qui affiche la fréquence de brossage au fil du temps   
 
 **Scénarios :**   
-a.	L’utilisateur peut consulter un graphique qui montre la fréquence du brossage (2x/j pdt au moins 2 min) au fil des jours, semaines ou mois.  
+a.	L’utilisateur peut consulter un graphique qui montre la fréquence du brossage (2x/j) au fil des jours, semaines ou mois.  
 b.	L’utilisateur peut visualiser comment ses habitudes de brossage évoluent au fil du temps  
 
 
