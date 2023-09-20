@@ -9,6 +9,7 @@ use Symfony\Component\Security\Core\User\UserInterface;
 
 #[ORM\Entity(repositoryClass: UserRepository::class)]
 #[ORM\Table(name: '`user`')]
+
 class User implements UserInterface, PasswordAuthenticatedUserInterface
 {
     #[ORM\Id]
@@ -27,6 +28,20 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
      */
     #[ORM\Column]
     private ?string $password = null;
+
+    //construct + hydrate
+    public function hydrate(array $vals){
+        foreach($vals as $cle=>$valeur){
+            if(isset($vals[$cle])){
+                $nomSet = "set" . ucfirst($cle);
+                $this->$nomSet($valeur);
+                }
+            }
+        }
+
+    public function __construct(array $init=[]){
+        $this->hydrate($init);
+        }
 
     public function getId(): ?int
     {
