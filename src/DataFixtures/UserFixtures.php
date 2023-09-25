@@ -2,6 +2,8 @@
 
 namespace App\DataFixtures;
 
+use Faker;
+
 use App\Entity\User;
 
 use Doctrine\Persistence\ObjectManager;
@@ -19,20 +21,26 @@ class UserFixtures extends Fixture
     
     public function load(ObjectManager $manager): void
     {
-        $user = new User (['email' => 'test@gmail.com',
+        $faker = Faker\Factory::create();
+
+        for($i = 0; $i < 10; $i++){
+            $user = new User (['nom' => $faker->lastName,
+                            'prenom' =>$faker->firstName,
+                            'email' => 'user' . $i .'@gmail.com',
+                            'dateNaissance' => $faker->dateTimeBetween('-70 years','-16 years'),
                             'roles' => []]);
 
-        //fixer un password sans hasher
-        $passwordSansHash = "password";
+            //fixer un password sans hasher
+            $passwordSansHash = "password";
 
-        //obtenir le password hashé
-        $passwordHash = $this->passwordHasher->hashPassword($user,$passwordSansHash);
+            //obtenir le password hashé
+            $passwordHash = $this->passwordHasher->hashPassword($user,$passwordSansHash);
 
-        //incruster dans l'entité password hashé
-        $user->setPassword($passwordHash);
+            //incruster dans l'entité password hashé
+            $user->setPassword($passwordHash);
 
-        $manager->persist($user);
-
+            $manager->persist($user);
+        }
         $manager->flush();
     }
 }

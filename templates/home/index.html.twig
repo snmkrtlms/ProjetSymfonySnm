@@ -3,6 +3,7 @@
 
 {% block body %}
 
-<h2>Bienvenue {{ app.user.email}} !</h2>
+<h2>Bienvenue {{ app.user.prenom}} !</h2>
+<a href="{{ path('app_logout') }}">Déconnexion</a>
 
 {% endblock %}
