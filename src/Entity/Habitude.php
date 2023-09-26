@@ -37,9 +37,18 @@ class Habitude
     #[ORM\ManyToMany(targetEntity: Conseil::class, mappedBy: 'habitude')]
     private Collection $conseils;
 
-    public function __construct()
-    {
-        $this->conseils = new ArrayCollection();
+    public function hydrate(array $vals){
+        foreach($vals as $cle=>$valeur){
+            if(isset($vals[$cle])){
+                $nomSet = "set" . ucfirst($cle);
+                $this->$nomSet($valeur);
+                }
+            }
+        }
+    
+    public function __construct(array $init=[]){
+        $this->hydrate($init);
+        $this->conseils = new ArrayCollection();   
     }
 
     public function getId(): ?int

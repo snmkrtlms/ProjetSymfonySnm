@@ -28,9 +28,18 @@ class Conseil
     #[ORM\ManyToMany(targetEntity: Habitude::class, inversedBy: 'conseils')]
     private Collection $habitude;
 
-    public function __construct()
-    {
-        $this->habitude = new ArrayCollection();
+    public function hydrate(array $vals){
+        foreach($vals as $cle=>$valeur){
+            if(isset($vals[$cle])){
+                $nomSet = "set" . ucfirst($cle);
+                $this->$nomSet($valeur);
+                }
+            }
+        }
+    
+    public function __construct(array $init=[]){
+        $this->hydrate($init);
+        $this->habitude = new ArrayCollection();      
     }
 
     public function getId(): ?int
