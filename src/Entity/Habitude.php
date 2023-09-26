@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\HabitudeRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 
@@ -28,6 +30,17 @@ class Habitude
 
     #[ORM\Column(nullable: true)]
     private ?bool $bainBouche = null;
+
+    #[ORM\ManyToOne(inversedBy: 'habitude')]
+    private ?User $user = null;
+
+    #[ORM\ManyToMany(targetEntity: Conseil::class, mappedBy: 'habitude')]
+    private Collection $conseils;
+
+    public function __construct()
+    {
+        $this->conseils = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -90,6 +103,45 @@ class Habitude
     public function setBainBouche(?bool $bainBouche): static
     {
         $this->bainBouche = $bainBouche;
+
+        return $this;
+    }
+
+    public function getUser(): ?User
+    {
+        return $this->user;
+    }
+
+    public function setUser(?User $user): static
+    {
+        $this->user = $user;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Conseil>
+     */
+    public function getConseils(): Collection
+    {
+        return $this->conseils;
+    }
+
+    public function addConseil(Conseil $conseil): static
+    {
+        if (!$this->conseils->contains($conseil)) {
+            $this->conseils->add($conseil);
+            $conseil->addHabitude($this);
+        }
+
+        return $this;
+    }
+
+    public function removeConseil(Conseil $conseil): static
+    {
+        if ($this->conseils->removeElement($conseil)) {
+            $conseil->removeHabitude($this);
+        }
 
         return $this;
     }

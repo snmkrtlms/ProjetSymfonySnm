@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\ConseilRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 
@@ -22,6 +24,14 @@ class Conseil
 
     #[ORM\Column(type: Types::TEXT, nullable: true)]
     private ?string $contenu = null;
+
+    #[ORM\ManyToMany(targetEntity: Habitude::class, inversedBy: 'conseils')]
+    private Collection $habitude;
+
+    public function __construct()
+    {
+        $this->habitude = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -60,6 +70,30 @@ class Conseil
     public function setContenu(?string $contenu): static
     {
         $this->contenu = $contenu;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Habitude>
+     */
+    public function getHabitude(): Collection
+    {
+        return $this->habitude;
+    }
+
+    public function addHabitude(Habitude $habitude): static
+    {
+        if (!$this->habitude->contains($habitude)) {
+            $this->habitude->add($habitude);
+        }
+
+        return $this;
+    }
+
+    public function removeHabitude(Habitude $habitude): static
+    {
+        $this->habitude->removeElement($habitude);
 
         return $this;
     }

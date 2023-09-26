@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\UserRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
@@ -47,6 +49,9 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\Column(length: 255, nullable: true)]
     private ?string $ville = null;
 
+    #[ORM\OneToMany(mappedBy: 'user', targetEntity: Habitude::class)]
+    private Collection $habitude;
+
     //construct + hydrate
     public function hydrate(array $vals){
         foreach($vals as $cle=>$valeur){
@@ -59,6 +64,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
 
     public function __construct(array $init=[]){
         $this->hydrate($init);
+        $this->habitude = new ArrayCollection();
         }
 
     public function getId(): ?int
@@ -187,6 +193,36 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     public function setVille(?string $ville): static
     {
         $this->ville = $ville;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Habitude>
+     */
+    public function getHabitude(): Collection
+    {
+        return $this->habitude;
+    }
+
+    public function addHabitude(Habitude $habitude): static
+    {
+        if (!$this->habitude->contains($habitude)) {
+            $this->habitude->add($habitude);
+            $habitude->setUser($this);
+        }
+
+        return $this;
+    }
+
+    public function removeHabitude(Habitude $habitude): static
+    {
+        if ($this->habitude->removeElement($habitude)) {
+            // set the owning side to null (unless already changed)
+            if ($habitude->getUser() === $this) {
+                $habitude->setUser(null);
+            }
+        }
 
         return $this;
     }
