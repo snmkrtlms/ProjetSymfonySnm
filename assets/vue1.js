@@ -1,3 +1,3 @@
 // import './styles/vue1.css';
 
-alert("BOjour je suis la vue1");
+// alert("Bonjour je suis la vue1");
