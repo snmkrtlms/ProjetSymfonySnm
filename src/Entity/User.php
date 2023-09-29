@@ -49,8 +49,8 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\Column(length: 255, nullable: true)]
     private ?string $ville = null;
 
-    #[ORM\OneToMany(mappedBy: 'user', targetEntity: Habitude::class)]
-    private Collection $habitude;
+    #[ORM\OneToMany(mappedBy: 'user', targetEntity: Habitude::class, orphanRemoval: true)]
+    private Collection $habitudes;
 
     //construct + hydrate
     public function hydrate(array $vals){
@@ -64,7 +64,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
 
     public function __construct(array $init=[]){
         $this->hydrate($init);
-        $this->habitude = new ArrayCollection();
+        $this->habitudes = new ArrayCollection();
         }
 
     public function getId(): ?int
@@ -200,15 +200,15 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     /**
      * @return Collection<int, Habitude>
      */
-    public function getHabitude(): Collection
+    public function getHabitudes(): Collection
     {
-        return $this->habitude;
+        return $this->habitudes;
     }
 
     public function addHabitude(Habitude $habitude): static
     {
-        if (!$this->habitude->contains($habitude)) {
-            $this->habitude->add($habitude);
+        if (!$this->habitudes->contains($habitude)) {
+            $this->habitudes->add($habitude);
             $habitude->setUser($this);
         }
 
@@ -217,7 +217,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
 
     public function removeHabitude(Habitude $habitude): static
     {
-        if ($this->habitude->removeElement($habitude)) {
+        if ($this->habitudes->removeElement($habitude)) {
             // set the owning side to null (unless already changed)
             if ($habitude->getUser() === $this) {
                 $habitude->setUser(null);
@@ -226,4 +226,5 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
 
         return $this;
     }
+
 }

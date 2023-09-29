@@ -26,7 +26,7 @@ class Conseil
     private ?string $contenu = null;
 
     #[ORM\ManyToMany(targetEntity: Habitude::class, inversedBy: 'conseils')]
-    private Collection $habitude;
+    private Collection $habitudes;
 
     public function hydrate(array $vals){
         foreach($vals as $cle=>$valeur){
@@ -39,7 +39,7 @@ class Conseil
     
     public function __construct(array $init=[]){
         $this->hydrate($init);
-        $this->habitude = new ArrayCollection();      
+        $this->habitudes = new ArrayCollection();    
     }
 
     public function getId(): ?int
@@ -86,15 +86,15 @@ class Conseil
     /**
      * @return Collection<int, Habitude>
      */
-    public function getHabitude(): Collection
+    public function getHabitudes(): Collection
     {
-        return $this->habitude;
+        return $this->habitudes;
     }
 
     public function addHabitude(Habitude $habitude): static
     {
-        if (!$this->habitude->contains($habitude)) {
-            $this->habitude->add($habitude);
+        if (!$this->habitudes->contains($habitude)) {
+            $this->habitudes->add($habitude);
         }
 
         return $this;
@@ -102,7 +102,7 @@ class Conseil
 
     public function removeHabitude(Habitude $habitude): static
     {
-        $this->habitude->removeElement($habitude);
+        $this->habitudes->removeElement($habitude);
 
         return $this;
     }

@@ -31,10 +31,11 @@ class Habitude
     #[ORM\Column(nullable: true)]
     private ?bool $bainBouche = null;
 
-    #[ORM\ManyToOne(inversedBy: 'habitude')]
+    #[ORM\ManyToOne(inversedBy: 'habitudes')]
+    #[ORM\JoinColumn(nullable: false)]
     private ?User $user = null;
 
-    #[ORM\ManyToMany(targetEntity: Conseil::class, mappedBy: 'habitude')]
+    #[ORM\ManyToMany(targetEntity: Conseil::class, mappedBy: 'habitudes')]
     private Collection $conseils;
 
     public function hydrate(array $vals){
@@ -48,7 +49,7 @@ class Habitude
     
     public function __construct(array $init=[]){
         $this->hydrate($init);
-        $this->conseils = new ArrayCollection();   
+        $this->conseils = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -154,4 +155,6 @@ class Habitude
 
         return $this;
     }
+
+
 }
