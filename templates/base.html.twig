@@ -12,8 +12,15 @@
             {{ encore_entry_script_tags('app') }}
         {% endblock %}
     </head>
+    <nav class="crumbs">
+        <ol>
+            <li class="crumb"><a href="{{ path ("vue1") }}">Ma vue 1</a></li>
+            <li class="crumb"><a href="{{ path ("vue2") }}">Ma vue 2</a></li>
+        </ol>
+    </nav>
     <body>
-        {# <a href="{{ path ("app_logout") }}">Logout</a> #}
-        {% block body %}{% endblock %}
+        <a href="{{ path ("app_logout") }}">Logout</a>
+        {% block body %}
+        {% endblock %}
     </body>
 </html>
