@@ -3,42 +3,57 @@
 <head>
     <!-- Incluez les scripts et styles de Chart.js ici -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <style>
-    #myChart {
-        width: 150px;
-        height: 75px;
-    }
-    </style>
 </head>
 <body>
     <canvas id="myChart"></canvas>
-    <script>
-        var dateBrossage = {{ chartData.dateBrossage|json_encode|raw }};
-        var nbBrossage = {{ chartData.nbBrossage|json_encode|raw }};
+<script>
+    var dateBrossage = {{ chartData.dateBrossage|json_encode|raw }};
+    var nbBrossage = {{ chartData.nbBrossage|json_encode|raw }};
+    var dateJour = new Date();
 
-        // Code pour créer le graphique avec Chart.js
-        // ...
-        var ctx = document.getElementById('myChart').getContext('2d');
-        var myChart = new Chart(ctx, {
-            type: 'bar',
-            data: {
-                labels: dateBrossage,
-                datasets: [{
-                    label: 'Fréquence de brossage',
-                    data: nbBrossage,
-                    backgroundColor: 'rgba(75, 192, 192, 0.2)',
-                    borderColor: 'rgba(75, 192, 192, 1)',
-                    borderWidth: 1
-                }]
-            },
-            options: {
-                scales: {
-                    y: {
-                        beginAtZero: true
-                    }
+    var semaine = [];
+
+    for (var i = -7; i <= 7; i++) {
+        var date = new Date(dateJour);
+        date.setDate(dateJour.getDate() + i);
+        semaine.push(date.toISOString().split('T')[0]);
+    }
+
+    // Créer les tableaux de labels et de données
+    var labels = semaine;
+    var data = [];
+    
+    for (var i = 0; i < semaine.length; i++) {
+        var dateIndex = dateBrossage.indexOf(semaine[i]);
+        if (dateIndex !== -1) {
+            data.push(nbBrossage[dateIndex]);
+        } else {
+            data.push(null);
+        }
+    }
+
+    // Code pour créer le graphique avec Chart.js
+    var ctx = document.getElementById('myChart').getContext('2d');
+    var myChart = new Chart(ctx, {
+        type: 'bar',
+        data: {
+            labels: labels,
+            datasets: [{
+                label: 'Fréquence de brossage',
+                data: data,
+                backgroundColor: 'rgba(75, 192, 192, 0.2)',
+                borderColor: 'rgba(75, 192, 192, 1)',
+                borderWidth: 1
+            }]
+        },
+        options: {
+            scales: {
+                y: {
+                    beginAtZero: true
                 }
             }
-        });
-    </script>
+        }
+    });
+</script>
 </body>
 </html>

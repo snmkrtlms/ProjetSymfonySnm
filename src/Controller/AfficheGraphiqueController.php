@@ -17,14 +17,14 @@ class AfficheGraphiqueController extends AbstractController
 
         // Utilisez le gestionnaire d'entités pour récupérer les données depuis la base de données
         $habitudesRepository = $entityManager->getRepository(Habitude::class);
-        $habitudes = $habitudesRepository->findBy(['user' => $user]); // Ou utilisez une requête plus spécifique
+        $habitudes = $habitudesRepository->findBy(['user' => $user]); // cherche habitude de l'user connecté
 
         // Transformez les données en un format utilisable par Chart.js
         $dateBrossage = [];
         $nbBrossage = [];
 
         foreach ($habitudes as $habitude) {
-            $dateBrossage[] = $habitude->getDateBrossage()->format('d-m-Y');
+            $dateBrossage[] = $habitude->getDateBrossage()->format('Y-m-d');
             $nbBrossage[] = $habitude->getNbBrossage();
         }
 
