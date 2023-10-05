@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <!-- Incluez les scripts et styles de Chart.js ici -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+    #myChart {
+        width: 150px;
+        height: 75px;
+    }
+    </style>
+</head>
+<body>
+    <canvas id="myChart"></canvas>
+    <script>
+        var dateBrossage = {{ chartData.dateBrossage|json_encode|raw }};
+        var nbBrossage = {{ chartData.nbBrossage|json_encode|raw }};
+
+        // Code pour créer le graphique avec Chart.js
+        // ...
+        var ctx = document.getElementById('myChart').getContext('2d');
+        var myChart = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: dateBrossage,
+                datasets: [{
+                    label: 'Fréquence de brossage',
+                    data: nbBrossage,
+                    backgroundColor: 'rgba(75, 192, 192, 0.2)',
+                    borderColor: 'rgba(75, 192, 192, 1)',
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+</html>

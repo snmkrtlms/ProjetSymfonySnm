@@ -1,0 +1,30 @@
+{% extends "base.html.twig" %}
+
+{% block body %}
+
+{% for habitude in arrayObjetsHabitudes %}
+    <h3>Mes habitudes</h3>
+    <ul>
+        <li>{{ habitude.dateBrossage | date("d-m-Y") }}</li>
+        <li>{{ habitude.nbBrossage }} </li>
+        {% if habitude.nettLangue %}
+            <li>Nettoyage de langue ok</li>
+        {% else %}
+            <li>Nettoyage de langue pas ok</li>
+        {% endif %}
+        {% if habitude.bainBouche %}
+            <li>Bain de bouche ok</li>
+        {% else %}
+            <li>Bain de bouche pas ok</li>
+        {% endif %}
+        {% if habitude.filDentaire %}
+            <li>Fil dentaire ok</li>
+        {% else %}
+            <li>Fil dentaire pas ok</li>
+        {% endif %}
+
+    </ul>
+    <br>
+{% endfor %}
+
+{% endblock %}

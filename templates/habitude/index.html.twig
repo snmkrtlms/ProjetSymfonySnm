@@ -1,0 +1,16 @@
+{% extends 'base.html.twig' %}
+
+
+{% block body %}
+
+    {{ form_errors(formulaireHabitude) }} 
+
+    {{ form_start (formulaireHabitude) }}
+
+    {{ form_widget (formulaireHabitude) }}
+
+        <button type="submit" class="btn">Enregistrer</button>
+
+    {{ form_end(formulaireHabitude) }}
+
+{% endblock %}
