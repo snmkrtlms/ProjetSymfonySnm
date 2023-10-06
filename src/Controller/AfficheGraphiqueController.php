@@ -3,8 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\Habitude;
-
-use Doctrine\ORM\EntityManagerInterface;
+use App\Repository\HabitudeRepository;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -12,13 +11,13 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 class AfficheGraphiqueController extends AbstractController
 {
     #[Route('/affiche/graphique', name: 'app_affiche_graphique')]
-    public function afficherGraphique(EntityManagerInterface $entityManager): Response
+    public function afficherGraphique(HabitudeRepository $rep): Response
     {
         $user = $this->getUser();
 
         // Utilisez le gestionnaire d'entités pour récupérer les données depuis la base de données
-        $habitudesRepository = $entityManager->getRepository(Habitude::class);
-        $habitudes = $habitudesRepository->findBy(['user' => $user]); // cherche habitude de l'user connecté
+
+        $habitudes = $rep->findBy(['user' => $user]); // cherche habitude de l'user connecté
 
         // Transformez les données en un format utilisable par Chart.js
         $dateBrossage = [];

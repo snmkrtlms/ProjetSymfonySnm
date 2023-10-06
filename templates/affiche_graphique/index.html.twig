@@ -1,28 +1,35 @@
 {% extends "base.html.twig" %}
 
 {% block body %}
-<canvas id="myChart"></canvas>
+
+<div style="width: 40%; margin: 0 auto;">
+    <canvas id="myChart"></canvas>
+</div>
 
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
 <script>
-    var dateBrossage = {{ chartData.dateBrossage|json_encode|raw }};
-    var nbBrossage = {{ chartData.nbBrossage|json_encode|raw }};
-    var dateJour = new Date();
+    let dateBrossage = {{ chartData.dateBrossage|json_encode|raw }};
+    let nbBrossage = {{ chartData.nbBrossage|json_encode|raw }};
+    let dateJour = new Date();
 
-    var semaine = [];
+    let semaine = [];
 
-    for (var i = -7; i <= 7; i++) {
-        var date = new Date(dateJour);
+    //afficher les 7 dates précedantes et 7 suivantes
+    for (let i = -7; i <= 7; i++) {
+        let date = new Date(dateJour);
         date.setDate(dateJour.getDate() + i);
-        semaine.push(date.toISOString().split('T')[0]);
+        semaine.push(date.toISOString().split('T')[0]); //divise en 2 puis recupère la première partie 
     }
 
     // Créer les tableaux de labels et de données
-    var labels = semaine;
-    var data = [];
+    let labels = semaine;
+    let data = [];
     
-    for (var i = 0; i < semaine.length; i++) {
-        var dateIndex = dateBrossage.indexOf(semaine[i]);
+    //voir si les dates correspondent si  oui push date sinon push null
+    for (let i = 0; i < semaine.length; i++) {
+        let dateIndex = dateBrossage.indexOf(semaine[i]);
+        //  vérifier si "dateIndex" n'est pas égal à -1 = date trouvée dans semaine
         if (dateIndex !== -1) {
             data.push(nbBrossage[dateIndex]);
         } else {
@@ -31,16 +38,16 @@
     }
 
     // Code pour créer le graphique avec Chart.js
-    var ctx = document.getElementById('myChart').getContext('2d');
-    var myChart = new Chart(ctx, {
+    let ctx = document.getElementById('myChart').getContext('2d');
+    let myChart = new Chart(ctx, {
         type: 'bar',
         data: {
             labels: labels,
             datasets: [{
                 label: 'Fréquence de brossage',
                 data: data,
-                backgroundColor: 'rgba(75, 192, 192, 0.2)',
-                borderColor: 'rgba(75, 192, 192, 1)',
+                backgroundColor: 'rgb(65, 152, 182)',
+                borderColor: 'rgb(35, 76, 91)',
                 borderWidth: 1
             }]
         },

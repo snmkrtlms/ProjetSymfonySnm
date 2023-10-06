@@ -57,7 +57,7 @@ class HabitudeController extends AbstractController
         }
 
         else{
-            // on envoie un objet FormView à la vue
+            // on envoie un objet Form à la vue
             $vars = ['formulaireHabitude' => $formulaireHabitude];
         
             return $this->render('/habitude/index.html.twig', $vars);
