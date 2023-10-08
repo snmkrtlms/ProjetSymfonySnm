@@ -127,7 +127,7 @@ h1{
 }
 
 .intro img{
-    width: 90% ;
+    width: 98% ;
     /* filter: opacity(70%); */
 }
 
@@ -173,8 +173,8 @@ h1{
 #registration_form_dateNaissance_month,#registration_form_dateNaissance_day,#registration_form_dateNaissance_year{
     color: #999;
     height: 40px;
-    width: 28%;
-    padding: 10px;
+    /* width: 28%; */
+    padding: 7px;
     margin: 5px;
     border: 1px solid #ccc;
     border-radius: 5px;

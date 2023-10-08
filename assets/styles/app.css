@@ -1,0 +1,99 @@
+@import url('https://fonts.googleapis.com/css2?family=Dela+Gothic+One&family=Montserrat:ital@0;1&family=Satisfy&display=swap');
+
+html, body{
+    min-height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    overflow: hidden;
+}
+
+header{
+    background-color: rgb(40, 104, 229);
+    overflow: hidden;
+}
+
+.menu{
+    flex: 1;
+    text-align: right;
+    margin-right: 100px;
+    margin-top: 1%;
+    z-index: 1; /* Spécifiez un z-index pour le menu supérieur */
+}
+
+.container{
+    display: flex;
+    margin-left: 250px;
+}
+
+.menu a{
+    text-decoration: none;
+    color: white;
+    font-family:'Montserrat', sans-serif;
+    letter-spacing: 1px;
+}
+
+.logo a{
+    text-decoration: none;
+    color: white;
+    font-family: 'Satisfy', cursive;
+    font-size: 20px;
+    letter-spacing: 2px;
+    text-decoration: none;
+}
+
+.menu a:hover{
+    color: rgb(190, 212, 255);
+}
+
+.logo {
+    flex: 1;
+    text-align: left;
+    margin-top: 1%;
+    padding: 5px;
+    margin-left: 50px;
+}
+
+header nav li{
+    display: inline-block;
+    margin-right: 50px;
+    padding: 5px;
+    list-style: none;
+}
+
+
+/* Styles pour la sidebar */
+.sidebar {
+    background-color: #eaecf2;
+    padding: 20px;
+    position: fixed; /* Ajoutez position: fixed pour maintenir la sidebar fixe */
+    top: 0;
+    left: 0;
+    width: 250px;
+    height: 100%; /* Remplissez la hauteur de l'écran */
+    z-index: 1; /* Spécifiez un z-index pour la sidebar */
+}
+
+.sidebar a {
+    color: rgb(40, 104, 229);
+    text-decoration: none;
+    font-family:'Montserrat', sans-serif;
+    display: block;
+    margin-bottom: 10px;
+    transition: color 0.3s;
+    text-align: left;
+}
+
+.sidebar li{
+    list-style: none;
+}
+
+.sidebar a:hover {
+    color: rgb(190, 212, 255)
+} 
+
+.wrapper{
+    width: 250px;
+}
