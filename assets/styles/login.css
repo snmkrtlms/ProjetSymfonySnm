@@ -1,0 +1,151 @@
+@import url('https://fonts.googleapis.com/css2?family=Dela+Gothic+One&family=Montserrat:ital@0;1&family=Satisfy&display=swap');
+
+html, body{
+    min-height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    overflow: hidden;
+}
+
+h1{
+    margin-top: 50px;
+    font-family: 'Dela Gothic One', cursive;
+    font-size: xx-large;
+    letter-spacing: 6px;
+    color: rgb(255, 255, 255);
+}
+
+h2{
+    font-family: 'Dela Gothic One', cursive;
+    font-size: xx-large;
+    letter-spacing: 6px;
+    color: rgb(40, 104, 229);
+}
+
+.intro h3, p {
+    font-family: 'Montserrat', sans-serif;
+    font-style: italic;
+    letter-spacing: 2px;
+}
+
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    height: 100vh; /* Ajustez la hauteur en fonction de vos besoins */
+}
+
+.login-form {
+    flex: 1;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: rgb(40, 104, 229);
+    height: 100%;
+    /* Styles pour la partie gauche (champs de connexion) */
+}
+
+.login {
+    display: flex;
+    text-align: center;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+input {
+    background-color: white !important;
+    width: 80%;
+    padding: 10px;
+    margin: 20px auto;
+    border: 2px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+/* input:invalid{
+    background-color: white;
+} */
+
+input::placeholder{
+    color: #999; /* Couleur du placeholder */
+    font-style: italic; /* Style du texte du placeholder */
+}
+
+input:focus{
+    border-color: #007bff; /* Couleur de la bordure au focus */
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5); /* Ombre au focus */
+}
+
+.forgot-password-link {
+    display: block; /*Pour que le lien prenne toute la largeur de son conteneur*/
+    text-align: left; /* Aligner le lien à droite */
+    /* margin-top: 10px; Espacement par rapport aux champs de saisie */
+    margin-left: 50px;
+    text-decoration: none; /* Supprimer les soulignements par défaut des liens */
+    color: #ffffff; /* Couleur du lien (peut être ajustée) */
+    font-style: italic;
+}
+
+.login button {
+    background-color: rgb(40, 104, 229);
+    color: white;
+    padding: 10px 20px;
+    border: solid 1px;
+    border-radius: 5px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-top: 25px;
+}
+
+.login button:hover {
+    background-color: #4195ef;
+}
+
+.login-button, .register-button {
+    text-align: center;
+    margin: 20px;
+}
+
+.register-button a{
+    text-decoration: none;
+    color: white;
+}
+
+.login-form>a {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    font-family: 'Satisfy', cursive;
+    font-size: 20px;
+    letter-spacing: 2px;
+    color: rgb(255, 255, 255);
+    text-decoration: none;
+}
+
+.intro {
+    margin-left: 50px;
+    flex: 2;
+    padding: 20px;
+    /* Styles pour la partie droite (texte d'introduction) */
+}
+
+.help {
+    position: absolute;
+    top: 20px; /* Ajustez la position verticale (haut) */
+    right: 20px; /* Ajustez la position horizontale (droite) */
+}
+
+.help a {
+    text-decoration: none; /* Supprimer les soulignements par défaut des liens */
+    color: rgb(40, 104, 229); /* Couleur du lien (peut être ajustée) */
+    font-family:'Montserrat', sans-serif;
+    font-style: italic;
+    letter-spacing: 1px;
+}

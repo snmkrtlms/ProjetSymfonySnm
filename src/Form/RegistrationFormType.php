@@ -23,7 +23,7 @@ class RegistrationFormType extends AbstractType
             ->add('nom', TextType::class)
             ->add('prenom', TextType::class)
             ->add('email')
-            ->add('dateNaissance', DateType::class, ['years' => range(1950, date('Y'))])
+            ->add('dateNaissance', DateType::class, ['years' => range(1950, 2011)])
 
             ->add('ville', TextType::class)
             ->add('agreeTerms', CheckboxType::class, [

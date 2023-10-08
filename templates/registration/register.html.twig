@@ -1,24 +1,86 @@
-{% extends 'base.html.twig' %}
-
-{% block title %}Register{% endblock %}
+{% block stylesheets %}
+    {{ encore_entry_link_tags('register') }}
+{% endblock %}
 
 {% block body %}
-    <h1>Register</h1>
+<div class="container">
+    <div class="intro">
+        <!-- <h2>Un sourire éclantant à portée <br>de clic !</h2> -->
+        <img src="/images/dent.jpg">
+        <a href="{{ path('app_login') }}">SmileCare</a>
+    </div>
 
-    {{ form_errors(registrationForm) }}
+    <div class="register-form">
+        <div class="register">
+            <h1>Inscription</h1>
+            {{ form_errors(registrationForm) }}
 
-    {{ form_start(registrationForm) }}
-        {{ form_row(registrationForm.nom) }}
-        {{ form_row(registrationForm.prenom) }}
-        {{ form_row(registrationForm.email) }}
-        {{ form_row(registrationForm.plainPassword, {
-            label: 'Password'
-        }) }}
-        {{ form_row(registrationForm.dateNaissance) }}
-        {{ form_row(registrationForm.ville) }}
-        {{ form_row(registrationForm.agreeTerms) }}
+            {{ form_start(registrationForm) }}
+
+                {{ form_row(registrationForm.nom,{
+                    'name': "",
+                    'attr': {
+                        'class': 'register-input',
+                        'placeholder': 'Nom'
+                    }
+                }) }}
+                {{ form_row(registrationForm.prenom,{
+                    'name': "",
+                    'attr': {
+                        'class': 'register-input',
+                        'placeholder': 'Prénom'
+                    }
+                }) }}
+                {{ form_row(registrationForm.email,{
+                    'name': "",
+                    'attr': {
+                        'class': 'register-input',
+                        'placeholder': 'Email'
+                    }
+                }) }}
+                {{ form_row(registrationForm.plainPassword, {
+                    name: '',
+                    'attr': {
+                        'class': 'register-input',
+                        'placeholder': 'Mot de passe'
+                    }
+                }) }}
+                <div class='date-container'>
+                    <span>Date de naissance </span>
+                    {{ form_row(registrationForm.dateNaissance,{
+                        'name':'',
+                    }) }}
+                </div>
+
+                {{ form_row(registrationForm.ville,{
+                    'name': "",
+                    'attr': {
+                        'class': 'register-input',
+                        'placeholder': 'Ville'
+                    }
+                }) }}
+                {{ form_row(registrationForm.agreeTerms,{
+                    'attr': {
+                        'class':'agree'
+                    },
+                    'label': "J'accepte les termes et conditions"
+                }) }}
+
+                <div class="register-button">
+                    <button type="submit" class="btn">S'enregistrer</button>
+                </div>
+            {{ form_end(registrationForm) }}
+        </div>
+        <div class="help">
+            <a href="#">Besoin d'aide ?</a>
+        </div>
+    </div>
+
+    <!-- <div class="vide">
+        <img src="/images/dent.jpg">
+    </div>-->
+
+</div>
 
 
-        <button type="submit" class="btn">Register</button>
-    {{ form_end(registrationForm) }}
 {% endblock %}

@@ -1,0 +1,184 @@
+@import url('https://fonts.googleapis.com/css2?family=Dela+Gothic+One&family=Montserrat:ital@0;1&family=Satisfy&display=swap');
+
+html, body{
+    min-height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    overflow: hidden;
+}
+
+h1{
+    margin-top: 15%;
+    margin-bottom: 5%;
+    font-family: 'Dela Gothic One', cursive;
+    font-size: xx-large;
+    letter-spacing: 6px;
+    color: rgb(255, 255, 255);
+}
+
+/* h2{
+    font-family: 'Dela Gothic One', cursive;
+    font-size:20px;
+    letter-spacing: 6px;
+    color: rgb(40, 104, 229);
+} */
+
+/* .intro h3, p {
+    font-family: 'Montserrat', sans-serif;
+    font-style: italic;
+    letter-spacing: 2px;
+} */
+
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    height: 100vh; 
+}
+
+.register-form {
+    flex: 1;
+    /* padding: 20px; */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: rgb(40, 104, 229);
+    height: 95%;
+    margin-right: 1%;
+}
+
+.register {
+    display: flex;
+    text-align: center;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.register-input {
+    background-color: white !important;
+    width: 100%;
+    padding: 10px;
+    margin: 10px auto;
+    border: 2px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.register label{
+    color: white;
+}
+
+.register-input:invalid{
+    background-color: white;
+}
+
+.register-input::placeholder{
+    color: #999; /* Couleur du placeholder */
+    font-style: italic; /* Style du texte du placeholder */
+}
+
+.register-input:focus{
+    border-color: #007bff; /* Couleur de la bordure au focus */
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5); /* Ombre au focus */
+}
+
+.register button {
+    background-color: rgb(40, 104, 229);
+    color: white;
+    padding: 10px 20px;
+    border: solid 1px;
+    border-radius: 5px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin: 15px;
+}
+
+.register button:hover {
+    background-color: #4195ef;
+}
+
+.register-button {
+    text-align: center;
+    margin: 20px;
+}
+
+.intro a {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    font-family: 'Satisfy', cursive;
+    font-size: 20px;
+    letter-spacing: 2px;
+    color: rgb(40, 104, 229);
+    text-decoration: none;
+}
+
+.intro {
+    flex: 1;
+    /* margin-left: 50px;
+    padding: 20px; */
+    text-align: center;
+}
+
+.intro img{
+    width: 90% ;
+    /* filter: opacity(70%); */
+}
+
+/* .vide {
+    flex: 1;
+} */
+
+.register label {
+    font-style: italic;
+}
+
+.help {
+    position: absolute;
+    top: 30px; /* Ajustez la position verticale (haut) */
+    right: 30px; /* Ajustez la position horizontale (droite) */
+}
+
+
+.help a {
+    text-decoration: none; /* Supprimer les soulignements par défaut des liens */
+    color: rgb(255, 255, 255); /* Couleur du lien (peut être ajustée) */
+    font-family:'Montserrat', sans-serif;
+    font-style: italic;
+    letter-spacing: 1px;
+}
+
+.date-container {
+    display: flex;
+    align-items: center;
+}
+
+/* Styles pour le texte "Date de naissance" */
+.date-container span {
+    margin-left: 8px;
+    margin-right: 10px; /* Ajustez la marge pour l'espacement souhaité */
+    color: #f9f4f4;
+    font-style: italic;
+    font-size: 16px;
+    font-family: Arial, Helvetica, sans-serif;
+
+}
+
+#registration_form_dateNaissance_month,#registration_form_dateNaissance_day,#registration_form_dateNaissance_year{
+    color: #999;
+    height: 40px;
+    width: 28%;
+    padding: 10px;
+    margin: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 14px;
+    background-color: #ffffff;
+}
+
