@@ -10,7 +10,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 class AfficheGraphiqueController extends AbstractController
 {
-    #[Route('/affiche/graphique', name: 'app_affiche_graphique')]
+    #[Route('/affiche/graphique', name: 'app_graphique')]
     public function afficherGraphique(HabitudeRepository $rep): Response
     {
         $user = $this->getUser();

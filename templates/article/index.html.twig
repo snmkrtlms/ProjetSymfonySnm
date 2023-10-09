@@ -1,0 +1,24 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+<div class="contenu">
+    <h2>hello</h2>
+    {% for article in arrayObjetsArticles|slice(0, 3) %}
+        <div class="row">
+            <div class="col-sm-4">
+                <div class="imageArt">
+                    <img class="card-img-top" src="/images/image.png" alt="Card image cap">
+                </div>
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ article.titre }}</h5>
+                        <p class="card-text">{{ article.contenu }}</p>
+                        <a href="{{ path ('home') }}" class="btn btn-primary">Go somewhere</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    {% endfor %}
+</div>
+{% endblock %}

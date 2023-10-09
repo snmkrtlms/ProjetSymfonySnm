@@ -3,8 +3,8 @@
 {% block body %}
 
 <div class="contenu">
+<h3>Historique des habitudes</h3>
 {% for habitude in arrayObjetsHabitudes %}
-    <h3>Mes habitudes</h3>
     <ul>
         <li>{{ habitude.dateBrossage | date("d-m-Y") }}</li>
         <li>{{ habitude.nbBrossage }} </li>
@@ -24,7 +24,6 @@
             <li>Fil dentaire pas ok</li>
         {% endif %}
     </ul>
-    <br>
 {% endfor %}
 </div>
 

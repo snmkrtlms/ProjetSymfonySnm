@@ -1,18 +1,18 @@
 @import url('https://fonts.googleapis.com/css2?family=Dela+Gothic+One&family=Montserrat:ital@0;1&family=Satisfy&display=swap');
 
-html, body{
+/* html, body{
     min-height: 100%;
     margin: 0;
     padding: 0;
-}
+} */
 
-body{
+/* body{
     overflow: hidden;
-}
+} */
 
 header{
     background-color: rgb(40, 104, 229);
-    overflow: hidden;
+    /* overflow: hidden; */
 }
 
 /* nav{
@@ -26,6 +26,7 @@ header{
 }
 
 .container{
+    position: fixed;
     display: flex;
     margin-left: 2%;
 }

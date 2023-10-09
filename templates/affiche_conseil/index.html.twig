@@ -1,0 +1,15 @@
+{% extends "base.html.twig" %}
+
+{% block body %}
+
+<div class="contenu">
+    <h3>Conseils</h3>
+    {% for conseil in arrayObjetsConseils|slice(0, 3) %}
+        <ul>
+            <li>{{ conseil.titre }} </li>
+            <li>{{ conseil.contenu }}</li>
+        </ul>
+    {% endfor %}
+</div>
+
+{% endblock %}

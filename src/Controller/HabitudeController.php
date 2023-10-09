@@ -64,5 +64,5 @@ class HabitudeController extends AbstractController
             return $this->render('/habitude/index.html.twig', $vars);
         }
     }
-        
+    
 }

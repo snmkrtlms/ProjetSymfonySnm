@@ -1,13 +1,17 @@
 {% extends "base.html.twig" %}
 
 {% block body %}
-<div style="width: 40%; margin: 0 auto;">
-    <canvas id="myChart"></canvas>
-</div>
 
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
 <div class="contenu">
+
+<h3>Graphique</h3>
+
+<div style="width: 40%;">
+    <canvas id="myChart"></canvas>
+</div>
+
 <script>
     let dateBrossage = {{ chartData.dateBrossage|json_encode|raw }};
     let nbBrossage = {{ chartData.nbBrossage|json_encode|raw }};
@@ -46,19 +50,24 @@
             datasets: [{
                 label: 'Fréquence de brossage',
                 data: data,
-                backgroundColor: 'rgb(65, 152, 182)',
-                borderColor: 'rgb(35, 76, 91)',
-                borderWidth: 1
+                borderWidth: 1,
+                borderColor: 'rgb(40,104,229)',
+                backgroundColor: 'rgb(40,104,229)',
+                fill: false,
             }]
         },
         options: {
             scales: {
                 y: {
-                    beginAtZero: true
+                    beginAtZero: true,
+                    max: 10,
+                    ticks: {                                                               
+                    stepSize: 1 // force l'echelle à une unitée
+                        },
                 }
             }
         }
     });
 </script>
 </div>
-{% endblock body %}
+{% endblock %}
