@@ -15,17 +15,19 @@ header{
     overflow: hidden;
 }
 
+/* nav{
+    margin-left: 250px;
+} */
+
 .menu{
     flex: 1;
     text-align: right;
-    margin-right: 100px;
     margin-top: 1%;
-    z-index: 1; /* Spécifiez un z-index pour le menu supérieur */
 }
 
 .container{
     display: flex;
-    margin-left: 250px;
+    margin-left: 2%;
 }
 
 .menu a{
@@ -36,7 +38,6 @@ header{
 }
 
 .logo a{
-    text-decoration: none;
     color: white;
     font-family: 'Satisfy', cursive;
     font-size: 20px;
@@ -53,8 +54,12 @@ header{
     text-align: left;
     margin-top: 1%;
     padding: 5px;
-    margin-left: 50px;
+    /* margin-left: 50px; */
 }
+
+/* header nav ul{
+    margin-right: 100px;
+} */
 
 header nav li{
     display: inline-block;
@@ -66,14 +71,8 @@ header nav li{
 
 /* Styles pour la sidebar */
 .sidebar {
-    background-color: #eaecf2;
     padding: 20px;
-    position: fixed; /* Ajoutez position: fixed pour maintenir la sidebar fixe */
-    top: 0;
-    left: 0;
-    width: 250px;
-    height: 100%; /* Remplissez la hauteur de l'écran */
-    z-index: 1; /* Spécifiez un z-index pour la sidebar */
+    top: 7%;
 }
 
 .sidebar a {
@@ -95,5 +94,8 @@ header nav li{
 } 
 
 .wrapper{
+    position: fixed;
     width: 250px;
+    height: 100%;
+    background-color: #eaecf2;
 }

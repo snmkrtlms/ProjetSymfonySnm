@@ -1,11 +1,14 @@
 {% extends "base.html.twig" %}
 
+{% block stylesheets %}
+    {{ encore_entry_link_tags('home') }}
+{% endblock %}
 
 {% block body %}
 
-<h2>Bienvenue {{ app.user.prenom}} !</h2>
-{# <a href="{{ path ("app_logout") }}">Logout</a> #}
-
+<div class="contenu">
+    <h2>Bienvenue {{ app.user.prenom}} !</h2>
+</div>
 
 {% endblock %}
 

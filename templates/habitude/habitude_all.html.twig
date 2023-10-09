@@ -2,6 +2,7 @@
 
 {% block body %}
 
+<div class="contenu">
 {% for habitude in arrayObjetsHabitudes %}
     <h3>Mes habitudes</h3>
     <ul>
@@ -22,9 +23,9 @@
         {% else %}
             <li>Fil dentaire pas ok</li>
         {% endif %}
-
     </ul>
     <br>
 {% endfor %}
+</div>
 
 {% endblock body %}

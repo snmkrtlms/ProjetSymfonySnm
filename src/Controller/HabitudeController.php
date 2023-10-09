@@ -28,6 +28,7 @@ class HabitudeController extends AbstractController
         return $this->render('habitude/habitude_all.html.twig', $vars);
     }
 
+    //action pour ajouter une habitude
     #[Route('/habitude/add', name: 'app_habitude')]
     public function habitudeAdd(Request $request, ManagerRegistry $doctrine)
     {

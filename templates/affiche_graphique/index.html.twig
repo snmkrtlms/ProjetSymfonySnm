@@ -1,13 +1,13 @@
 {% extends "base.html.twig" %}
 
 {% block body %}
-
 <div style="width: 40%; margin: 0 auto;">
     <canvas id="myChart"></canvas>
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
+<div class="contenu">
 <script>
     let dateBrossage = {{ chartData.dateBrossage|json_encode|raw }};
     let nbBrossage = {{ chartData.nbBrossage|json_encode|raw }};
@@ -15,7 +15,7 @@
 
     let semaine = [];
 
-    //afficher les 7 dates précedantes et 7 suivantes
+    //afficher les 7 dates précedentes et 7 suivantes
     for (let i = -7; i <= 7; i++) {
         let date = new Date(dateJour);
         date.setDate(dateJour.getDate() + i);
@@ -60,4 +60,5 @@
         }
     });
 </script>
+</div>
 {% endblock body %}

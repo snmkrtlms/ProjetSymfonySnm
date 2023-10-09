@@ -6,20 +6,9 @@
         <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text></svg>">
         {% block stylesheets %}
             {{ encore_entry_link_tags('app') }}
-            {% endblock %}
+        {% endblock %}
         </head>
         <body>
-    <!-- Sidebar -->
-        <div class="wrapper">
-            <aside class="sidebar">
-                <ul class="sidebar-links">
-                    <li><a href="#">Profil</a></li>
-                    <li><a href="{{ path ("habitude_all") }}">Tableau de bord</a></li>
-                    <li><a href="#">Contact</a></li>
-                    <a href="{{ path ("app_logout") }}">Logout</a>
-                <ul>
-            </aside>
-        </div>
                         
         <header>
             <div class="container">
@@ -37,8 +26,19 @@
                 </div>
             </div>
         </header>
+    <!-- Sidebar -->
+        <div class="wrapper">
+            <aside class="sidebar">
+                <ul class="sidebar-links">
+                    <li><a href="#">Profil</a></li>
+                    <li><a href="{{ path ("habitude_all") }}">Habitudes</a></li>
+                    <li><a href="#">Contact</a></li>
+                    <a href="{{ path ("app_logout") }}">Logout</a>
+                <ul>
+            </aside>
+        </div>
+    </body>
+</html>
         
         {% block body %}{% endblock %}
         
-    </body>
-</html>
