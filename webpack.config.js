@@ -21,10 +21,10 @@ Encore
      * and one CSS file (e.g. app.css) if your JavaScript imports CSS.
      */
     .addEntry('app', './assets/app.js')
-    .addEntry('home', './assets/app.js')
-    .addEntry('login', './assets/app.js')
-    .addEntry('register', './assets/app.js')
-    .addEntry('vue1', './assets/vue1.js')
+    .addEntry('home', './assets/home.js')
+    .addEntry('login', './assets/login.js')
+    .addEntry('register', './assets/register.js')
+    // .addEntry('vue1', './assets/vue1.js')
 
     // When enabled, Webpack "splits" your files into smaller pieces for greater optimization.
     .splitEntryChunks()

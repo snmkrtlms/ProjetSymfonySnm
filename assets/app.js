@@ -6,10 +6,7 @@
  */
 
 // any CSS you import will output into a single css file (app.css in this case)
-import './styles/login.css';
 import './styles/app.css';
-import './styles/home.css';
-import './styles/register.css';
 
 // rajouter le css de bootstrap
 import 'bootstrap/dist/css/bootstrap.css';

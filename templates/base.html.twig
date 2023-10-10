@@ -7,39 +7,42 @@
         {% block stylesheets %}
             {{ encore_entry_link_tags('app') }}
         {% endblock %}
-        </head>
-        <body>
-                        
-        <header>
-            <div class="container">
-                <div class="logo">
-                    <a href="{{ path('home') }}">SmileCare</a>
-                </div>
-                <div class="menu">
-                    <nav>
-                        <ul>
-                            <li><a href=""><div>Accueil</div></a></li>
-                            <li><a href=""><div>À propos</div></a></li>
-                            <li><a href=""><div>Contact</div></a></li>
-                        </ul>
-                    </nav>  
-                </div>
+        {% block javascript %}
+            {{ encore_entry_link_tags('app') }}
+        {% endblock %}
+    </head>
+    <body>
+                    
+    <header>
+        <div class="container">
+            <div class="logo">
+                <a href="{{ path('home') }}">SmileCare</a>
             </div>
-        </header>
-    <!-- Sidebar -->
-        <div class="wrapper">
-            <aside class="sidebar">
-                <ul class="sidebar-links">
-                    <li><a href="#">Profil</a></li>
-                    <li><a href="{{ path ("app_habitude") }}">Formulaire</a></li>
-                    <li><a href="{{ path ("habitude_all") }}">Tableau de bord</a></li>
-                    {# <li><a href="{{ path ("app_graphique") }}">Graphique</a></li> #}
-                    {# <li><a href="{{ path ("app_conseils") }}">Conseils</a></li> #}
-                    <li><a href="{{ path ("app_article") }}">Articles</a></li>
-                    <a href="{{ path ("app_logout") }}">Logout</a>
-                <ul>
-            </aside>
+            <div class="menu">
+                <nav>
+                    <ul>
+                        <li><a href=""><div>Accueil</div></a></li>
+                        <li><a href=""><div>À propos</div></a></li>
+                        <li><a href=""><div>Contact</div></a></li>
+                    </ul>
+                </nav>  
+            </div>
         </div>
+    </header>
+    <!-- Sidebar -->
+    <div class="wrapper">
+        <aside class="sidebar">
+            <ul class="sidebar-links">
+                <li><a href="#">Profil</a></li>
+                <li><a href="{{ path ("app_habitude") }}">Formulaire</a></li>
+                <li><a href="{{ path ("habitude_all") }}">Tableau de bord</a></li>
+                {# <li><a href="{{ path ("app_graphique") }}">Graphique</a></li> #}
+                {# <li><a href="{{ path ("app_conseils") }}">Conseils</a></li> #}
+                <li><a href="{{ path ("app_article") }}">Articles</a></li>
+                <a href="{{ path ("app_logout") }}">Logout</a>
+            <ul>
+        </aside>
+    </div>
     </body>
 </html>
         
