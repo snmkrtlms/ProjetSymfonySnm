@@ -28,6 +28,9 @@ class Conseil
     #[ORM\ManyToMany(targetEntity: Habitude::class, inversedBy: 'conseils')]
     private Collection $habitudes;
 
+    #[ORM\ManyToOne(inversedBy: 'conseils')]
+    private ?Categorie $categorie = null;
+
     public function hydrate(array $vals){
         foreach($vals as $cle=>$valeur){
             if(isset($vals[$cle])){
@@ -103,6 +106,18 @@ class Conseil
     public function removeHabitude(Habitude $habitude): static
     {
         $this->habitudes->removeElement($habitude);
+
+        return $this;
+    }
+
+    public function getCategorie(): ?Categorie
+    {
+        return $this->categorie;
+    }
+
+    public function setCategorie(?Categorie $categorie): static
+    {
+        $this->categorie = $categorie;
 
         return $this;
     }
