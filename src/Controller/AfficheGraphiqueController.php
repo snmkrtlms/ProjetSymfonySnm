@@ -10,7 +10,11 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 class AfficheGraphiqueController extends AbstractController
 {
-    #[Route('/affiche/graphique', name: 'app_graphique')]
+
+
+    // on va utiliser cette action pour generer une vue partielle
+    // pas besoin de route
+    // #[Route('/affiche/graphique', name: 'app_graphique')]
     public function afficherGraphique(HabitudeRepository $rep): Response
     {
         $user = $this->getUser();

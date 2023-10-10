@@ -11,8 +11,12 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 class ConseilController extends AbstractController
 {
-    #[Route('/affiche/conseil', name: 'app_conseil')]
-    public function afficherConseil(ManagerRegistry $doctrine)
+
+
+    // on va utiliser cette action pour generer une vue partielle
+    // pas besoin de route
+    // #[Route('/affiche/conseils', name: 'app_conseil')]
+    public function afficherConseils(ManagerRegistry $doctrine)
     {
         $conseils = $doctrine->getRepository(Conseil::class);
     

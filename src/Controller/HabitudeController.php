@@ -26,6 +26,8 @@ class HabitudeController extends AbstractController
         $vars = ['arrayObjetsHabitudes' => $arrayObjetsHabitudes];
 
         return $this->render('habitude/habitude_all.html.twig', $vars);
+
+        
     }
 
     //action pour ajouter une habitude
