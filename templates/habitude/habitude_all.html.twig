@@ -1,31 +1,37 @@
 {% extends "base.html.twig" %}
 
+{% block stylesheets %}
+    {{ encore_entry_link_tags('habitude') }}
+{% endblock %}
+
 {% block body %}
 
-<div class="contenu">
-<h3>Historique des habitudes</h3>
-{% for habitude in arrayObjetsHabitudes %}
-    <ul>
-        <li>{{ habitude.dateBrossage | date("d-m-Y") }}</li>
-        <li>{{ habitude.nbBrossage }} </li>
-        {% if habitude.nettLangue %}
-            <li>Nettoyage de langue ok</li>
-        {% else %}
-            <li>Nettoyage de langue pas ok</li>
-        {% endif %}
-        {% if habitude.bainBouche %}
-            <li>Bain de bouche ok</li>
-        {% else %}
-            <li>Bain de bouche pas ok</li>
-        {% endif %}
-        {% if habitude.filDentaire %}
-            <li>Fil dentaire ok</li>
-        {% else %}
-            <li>Fil dentaire pas ok</li>
-        {% endif %}
-    </ul>
-{% endfor %}
-</div>
+<div class="page">
+    <h3>Historique des habitudes</h3>
+    <table class="bordered-table">
+        <thead>
+            <tr>
+                <th>Date de Brossage</th>
+                <th>Nombre de Brossages</th>
+                <th>Nettoyage de Langue</th>
+                <th>Bain de Bouche</th>
+                <th>Fil Dentaire</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% set last5Habitudes = arrayObjetsHabitudes|slice(-5) %}
+            {% for habitude in last5Habitudes %}
+                <tr>
+                    <td>{{ habitude.dateBrossage | date("d-m-Y") }}</td>
+                    <td>{{ habitude.nbBrossage }}</td>
+                    <td>{{ habitude.nettLangue ? 'Ok' : 'Pas ok' }}</td>
+                    <td>{{ habitude.bainBouche ? 'Ok' : 'Pas ok' }}</td>
+                    <td>{{ habitude.filDentaire ? 'Ok' : 'Pas ok' }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
 
 
 {# incruster vue partielle ici #}
@@ -39,6 +45,7 @@
 {{ render (controller ('App\\Controller\\ConseilController::afficherConseils')) }}
 </div>
 
+</div>
 
 
 

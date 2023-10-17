@@ -23,7 +23,7 @@ class HabitudeFormType extends AbstractType
                 'format' => 'dd-MM-yyyy', // Format de date à afficher
                 'years' => range(date('Y'), date('Y')),//+1), // Années disponibles (par exemple, l'année en cours et l'année suivante)
                 'months' => range(date('m'),date('m')), // Mois disponibles (à partir du mois en cours)
-                'days' => range(date('d'), date('d')+7)// Jours disponibles (à partir du jour en cours)
+                'days' => range(date('d'), date('d')-3)// Jours disponibles (à partir du jour en cours)
             ])
             ->add('nbBrossage', IntegerType::class, [
                 'label' => 'nbBrossage',

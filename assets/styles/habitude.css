@@ -1,0 +1,54 @@
+
+.page{
+    margin-left: 20%;
+}
+.bordered-table {
+    border-collapse: collapse; /* Fusionner les bordures des cellules */
+    width: 45%; /* Largeur de la table (ajustez selon vos besoins) */
+    border: 2px solid #333; /* Bordure de la table */
+}
+
+.bordered-table th, .bordered-table td {
+    border: 1px solid #333; /* Bordure des cellules */
+    padding: 8px; /* Espace intérieur des cellules (ajustez selon vos besoins) */
+    text-align: left; /* Alignement du texte dans les cellules (ajustez selon vos besoins) */
+}
+
+.card-container {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.card {
+    flex: 0 0 calc(24% - 10px); /* Pour avoir 4 cartes par ligne (25% de la largeur moins un espacement de 20px) */
+    margin: 10px;
+    border: 1px solid #e0e0e0;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.card-header {
+    background-color: #007bff;
+    color: #fff;
+    padding: 10px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+}
+
+.card-title {
+    font-size: 1.25rem;
+    margin: 0;
+}
+
+.card-body {
+    padding: 15px;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+li {
+    margin: 5px 0;
+}

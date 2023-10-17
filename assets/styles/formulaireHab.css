@@ -1,0 +1,54 @@
+/* Styles pour le formulaire hygiène bucco-dentaire */
+
+.page{
+    margin-left: 20%;
+}
+.contenu {
+    width: 55%;
+    padding: 20px;
+    background-color:#ffffff;
+    border: 5px solid #007bff;
+    border-radius: 5px;
+    text-align: center; /* Centrer le contenu */
+}
+
+h3 {
+    font-size: 10px;
+    font-family: 'Dela Gothic One', cursive;
+    letter-spacing: 3px;
+    color: #007bff;
+    margin-bottom: 20px; /* Espace sous le titre */
+}
+
+/* Styles pour les messages d'erreur du formulaire */
+.form-errors {
+    color: red;
+}
+
+/* Styles pour le bouton Enregistrer */
+.btn {
+    background-color: #007bff;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+/* Styles pour les champs de formulaire */
+input, select, textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+/* Style pour les étiquettes des champs de formulaire */
+label {
+    font-weight: bold;
+    display: block;
+    margin-bottom: 5px;
+}

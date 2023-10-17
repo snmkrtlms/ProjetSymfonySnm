@@ -24,6 +24,9 @@ Encore
     .addEntry('home', './assets/home.js')
     .addEntry('login', './assets/login.js')
     .addEntry('register', './assets/register.js')
+    .addEntry('habitude', './assets/app.js')
+    .addEntry('formulaireHab', './assets/formulaireHab.js')
+
     // .addEntry('vue1', './assets/vue1.js')
 
     // When enabled, Webpack "splits" your files into smaller pieces for greater optimization.

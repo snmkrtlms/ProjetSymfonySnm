@@ -7,6 +7,7 @@
 
 // any CSS you import will output into a single css file (app.css in this case)
 import './styles/app.css';
+import './styles/habitude.css';
 
 // rajouter le css de bootstrap
 import 'bootstrap/dist/css/bootstrap.css';
@@ -20,4 +21,3 @@ window.$ = $;
 import 'bootstrap';
 
 // alert("Hello");
-

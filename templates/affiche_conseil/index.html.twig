@@ -1,10 +1,23 @@
 {# ceci est une vue partielle #}
 <div class="contenu">
-    <h3>Conseils</h3>
-    {% for conseil in arrayObjetsConseils|slice(0, 3) %}
-        <ul>
-            <li>{{ conseil.titre }} </li>
-            <li>{{ conseil.contenu }}</li>
-        </ul>
-    {% endfor %}
+    <h3>Conseils personnalisés</h3>
+    <div class="card-container">
+        {% set displayedCategories = [] %}
+        {% for conseil in conseils %}
+            {% if conseil.categorie.nom not in displayedCategories %}
+                <div class="card">
+                    <div class="card-header">
+                        <h4 class="card-title">{{ conseil.categorie.nom }}</h4>
+                    </div>
+                    <div class="card-body">
+                        <ul>
+                            <li>{{ conseil.titre }}</li>
+                            <li>{{ conseil.contenu }}</li>
+                        </ul>
+                    </div>
+                </div>
+                {% set displayedCategories = displayedCategories|merge([conseil.categorie.nom]) %}
+            {% endif %}
+        {% endfor %}
+    </div>
 </div>

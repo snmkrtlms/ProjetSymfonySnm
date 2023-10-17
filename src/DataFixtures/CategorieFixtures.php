@@ -13,14 +13,15 @@ class CategorieFixtures extends Fixture
     public function load(ObjectManager $manager): void
     {
         $faker = Faker\Factory::create();
+        $nomCat = ["filDentaire","brossage","bainBouche","nettLangue"];
 
-        for($i = 0; $i < 10; $i++){
-        $categorie = new Categorie(['nom' => "cat" . $i,
-                                'description' => $faker->text()]);
-        
+            foreach($nomCat as $nom){
+                $categorie = new Categorie(['nom' => $nom,
+                                        'description' => $faker->text()]);
+
         $manager->persist($categorie);
-        }
-        
+            }
+            
         $manager->flush();
     }
 }

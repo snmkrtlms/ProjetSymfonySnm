@@ -1,22 +1,48 @@
 {% extends 'base.html.twig' %}
 
+{% block stylesheets %} 
+<style>
+    .custom-card {
+        display: flex;
+        border: 1px solid #ccc;
+        margin: 10px;
+        padding: 10px;
+        max-width: 90%;
+    }
+
+    .card-image {
+        width: 200px;
+        height: 150px;
+        object-fit: cover;
+        margin-right: 10px;
+    }
+
+    .card-content {
+        flex: 1;
+    }
+
+    .card-title {
+        font-size: 20px;
+        margin: 0;
+    }
+
+    .card-text {
+        font-size: 16px;
+    }
+</style>
+{% endblock %}
+
 {% block body %}
 
-<div class="contenu">
+<div class="page">
     <h2>hello</h2>
     {% for article in arrayObjetsArticles|slice(0, 3) %}
-        <div class="row">
-            <div class="col-sm-4">
-                <div class="imageArt">
-                    <img class="card-img-top" src="/images/image.png" alt="Card image cap">
-                </div>
-                <div class="card">
-                    <div class="card-body">
-                        <h5 class="card-title">{{ article.titre }}</h5>
-                        <p class="card-text">{{ article.contenu }}</p>
-                        <a href="{{ path ('home') }}" class="btn btn-primary">Go somewhere</a>
-                    </div>
-                </div>
+        <div class="custom-card">
+            <img src="/images/image.png" alt="Image de la carte" class="card-image">
+            <div class="card-content">
+                <h5 class="card-title">{{ article.titre }}</h5>
+                <p class="card-text">{{ article.contenu }}</p>
+                <a href="{{ path ('home') }}" class="btn btn-primary">Go somewhere</a>
             </div>
         </div>
     {% endfor %}
