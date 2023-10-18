@@ -34,22 +34,17 @@
 
 
 
-{# incruster vue partielle ici #}
-<div id="vue_graphique">
-{{ render (controller ('App\\Controller\\AfficheGraphiqueController::afficherGraphique')) }}
+    {# incruster vue partielle ici #}
+    <div id="vue_graphique">
+    {{ render (controller ('App\\Controller\\AfficheGraphiqueController::afficherGraphique')) }}
+    </div>
+
+
+    {# incruster vue partielle ici #}
+    <div id="vue_conseils">
+    {{ render (controller ('App\\Controller\\ConseilController::afficherConseils')) }}
+    </div>
+
 </div>
-
-
-{# incruster vue partielle ici #}
-<div id="vue_conseils">
-{{ render (controller ('App\\Controller\\ConseilController::afficherConseils')) }}
-</div>
-
-</div>
-
-
-
-
-
 
 {% endblock body %}
