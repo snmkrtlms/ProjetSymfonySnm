@@ -2,6 +2,24 @@
 .page{
     margin-left: 20%;
 }
+
+.TabGraph{
+    display: flex;
+    align-items: center;
+}
+
+.tab {
+    flex: 1;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+#vue_graphique {
+    flex: 1;
+    margin-right:5% ;
+}
+
 .bordered-table {
     border-collapse: collapse; /* Fusionner les bordures des cellules */
     width: 45%; /* Largeur de la table (ajustez selon vos besoins) */

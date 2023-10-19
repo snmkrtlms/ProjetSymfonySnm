@@ -7,38 +7,39 @@
 {% block body %}
 
 <div class="page">
-    <h3>Historique des habitudes</h3>
-    <table class="bordered-table">
-        <thead>
-            <tr>
-                <th>Date de Brossage</th>
-                <th>Nombre de Brossages</th>
-                <th>Nettoyage de Langue</th>
-                <th>Bain de Bouche</th>
-                <th>Fil Dentaire</th>
-            </tr>
-        </thead>
-        <tbody>
-            {% set last5Habitudes = arrayObjetsHabitudes|slice(-5) %}
-            {% for habitude in last5Habitudes %}
+    <div class="TabGraph">
+        <div class="tab">
+        <h3>Historique des habitudes</h3>
+        <table class="bordered-table">
+            <thead>
                 <tr>
-                    <td>{{ habitude.dateBrossage | date("d-m-Y") }}</td>
-                    <td>{{ habitude.nbBrossage }}</td>
-                    <td>{{ habitude.nettLangue ? 'Ok' : 'Pas ok' }}</td>
-                    <td>{{ habitude.bainBouche ? 'Ok' : 'Pas ok' }}</td>
-                    <td>{{ habitude.filDentaire ? 'Ok' : 'Pas ok' }}</td>
+                    <th>Date de Brossage</th>
+                    <th>Nombre de Brossages</th>
+                    <th>Nettoyage de Langue</th>
+                    <th>Bain de Bouche</th>
+                    <th>Fil Dentaire</th>
                 </tr>
-            {% endfor %}
-        </tbody>
-    </table>
-
-
+            </thead>
+            <tbody>
+                {% set last5Habitudes = arrayObjetsHabitudes|slice(-5) %}
+                {% for habitude in last5Habitudes %}
+                    <tr>
+                        <td>{{ habitude.dateBrossage | date("d-m-Y") }}</td>
+                        <td>{{ habitude.nbBrossage }}</td>
+                        <td>{{ habitude.nettLangue ? 'Ok' : 'Pas ok' }}</td>
+                        <td>{{ habitude.bainBouche ? 'Ok' : 'Pas ok' }}</td>
+                        <td>{{ habitude.filDentaire ? 'Ok' : 'Pas ok' }}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
 
     {# incruster vue partielle ici #}
     <div id="vue_graphique">
     {{ render (controller ('App\\Controller\\AfficheGraphiqueController::afficherGraphique')) }}
     </div>
-
+</div>
 
     {# incruster vue partielle ici #}
     <div id="vue_conseils">
