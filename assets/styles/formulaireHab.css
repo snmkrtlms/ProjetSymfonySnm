@@ -4,12 +4,21 @@
     margin-left: 20%;
 }
 .contenu {
-    width: 55%;
-    padding: 20px;
-    background-color:#ffffff;
-    border: 5px solid #007bff;
-    border-radius: 5px;
-    text-align: center; /* Centrer le contenu */
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.info{
+    flex: 1;
+    text-align:center;
+    /* background-color: #f16464; */
+    height: 100%;
+}
+
+.form{
+    flex:2;
+    margin: 10%;
 }
 
 h3 {
@@ -25,7 +34,7 @@ h3 {
 }
 
 /* Styles pour le bouton Enregistrer */
-.btn {
+.send {
     background-color: #007bff;
     color: #fff;
     padding: 10px 20px;
@@ -50,4 +59,34 @@ label {
     font-weight: bold;
     display: block;
     margin-bottom: 5px;
+}
+
+
+.form-row {
+    display: flex;
+    justify-content: space-between;
+}
+
+.form-row label {
+    flex: 1;
+}
+
+.form-row .form-widget {
+    flex: 2;
+}
+
+.form-date {
+    display: flex;
+}
+
+.form-date .form-widget {
+    flex: 1;
+}
+
+.form-radio {
+    display: flex;
+}
+
+.form-radio label {
+    margin-right: 10px;
 }

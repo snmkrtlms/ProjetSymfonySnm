@@ -39,6 +39,12 @@
         }
     }
 
+    //fixer une couleur en fct de nbBrossage
+    let couleurRouge = 'rgb(255, 94, 77)';
+    let couleurVerte = 'rgb(133, 193, 126)';
+
+    let backgroundColor = data.map(value => value < 2 ? couleurRouge : couleurVerte);
+
     // Code pour créer le graphique avec Chart.js
     let ctx = document.getElementById('myChart').getContext('2d');
     let myChart = new Chart(ctx, {
@@ -46,11 +52,11 @@
         data: {
             labels: labels,
             datasets: [{
-                label: 'Fréquence de brossage',
+                label: 'Fréquence de brossage/ Jour',
                 data: data,
-                borderWidth: 1,
-                borderColor: 'rgb(40,104,229)',
-                backgroundColor: 'rgb(40,104,229)',
+                borderWidth: 0,
+                {# borderColor: 'black', #}
+                backgroundColor: backgroundColor,
                 fill: false,
             }]
         },
@@ -58,7 +64,7 @@
             scales: {
                 y: {
                     beginAtZero: true,
-                    max: 10,
+                    max: 6,
                     ticks: {                                                               
                     stepSize: 1 // force l'echelle à une unitée
                         },
