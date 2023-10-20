@@ -6,44 +6,54 @@
 
 {% block body %}
 <div class="page">
-    <h3>Formulaire d'habitude d'hygiène bucco-dentaire</h3>
 
     <div class="contenu">
         <div class="info">
+        <h3>BLABLABLABLA</h3>
         </div>
+
         <div class="form">
+        <h3>Formulaire d'habitude d'hygiène bucco-dentaire</h3>
+    
         {{ form_errors(formulaireHabitude) }}
 
-        {{ form_start(formulaireHabitude) }}
+        {{ form_start(formulaireHabitude)}}
             
-            <div class='date-container'>
-                <span>Date du brossage : </span>
-                {{ form_row(formulaireHabitude.dateBrossage,{
-                    'name':'',
-                }) }}
-            </div>
-                
-            <div>
-                {{ form_label(formulaireHabitude.nbBrossage) }}
-                {{ form_widget(formulaireHabitude.nbBrossage) }}
+            {{ form_label(formulaireHabitude.dateBrossage, 'Date de votre brossage dentaire :') }}
+            {{ form_row(formulaireHabitude.dateBrossage,{
+                'name':'',
+            }) }}
+
+            {{ form_label(formulaireHabitude.nbBrossage, 'Fréquence du brossage de ce jour :') }}
+            {{ form_row(formulaireHabitude.nbBrossage,{
+                'name':'',
+                'attr': {
+                    'min': 0,
+                    'max': 5
+                }
+            }) }}
+
+            {{ form_row(formulaireHabitude.nettLangue,{
+                'name':'',
+                'label':'Avez-vous nettoyé votre langue ?',
+            }) }}
+
+            {{ form_row(formulaireHabitude.filDentaire,{
+                'name':'',
+                'label':'Avez-vous utilisé le fil dentaire ?',
+            }) }}
+
+            {{ form_row(formulaireHabitude.bainBouche,{
+                'name':'',
+                'label':'Avez-vous utilisé un bain de bouche ?',
+            }) }}
+
+            <div class = "form-button">
+            <button type="submit" class="send">Enregistrer</button>
             </div>
 
-        <div class="form-row">
-            <div>
-                {{ form_label(formulaireHabitude.nettLangue) }}
-                {{ form_widget(formulaireHabitude.nettLangue) }}
-            </div>
-            <div>
-                {{ form_label(formulaireHabitude.filDentaire) }}
-                {{ form_widget(formulaireHabitude.filDentaire) }}
-            </div>
-            <div>
-                {{ form_label(formulaireHabitude.bainBouche) }}
-                {{ form_widget(formulaireHabitude.bainBouche) }}
-            </div>
         </div>
         
-        <button type="submit" class="send">Enregistrer</button>
         {{ form_end(formulaireHabitude) }}
     </div>
 </div>

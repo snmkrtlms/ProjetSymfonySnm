@@ -1,13 +1,16 @@
 {% extends "base.html.twig" %}
 
+
 {% block stylesheets %}
     {{ encore_entry_link_tags('habitude') }}
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
 {% endblock %}
 
 {% block body %}
 
-<div class="page">
-    <div class="TabGraph">
+<div class="tab-bord">
+    <h3>Tableau de Bord :</h3>
+    <div class="tableau-hab">
         <div class="tab">
         <h3>Historique des habitudes</h3>
         <table class="bordered-table">
@@ -26,9 +29,9 @@
                     <tr>
                         <td>{{ habitude.dateBrossage | date("d-m-Y") }}</td>
                         <td>{{ habitude.nbBrossage }}</td>
-                        <td>{{ habitude.nettLangue ? 'Ok' : 'Pas ok' }}</td>
-                        <td>{{ habitude.bainBouche ? 'Ok' : 'Pas ok' }}</td>
-                        <td>{{ habitude.filDentaire ? 'Ok' : 'Pas ok' }}</td>
+                        <td>{{ habitude.nettLangue ? '<i class="fa-solid fa-check"></i>' : '<i class="fa-solid fa-xmark">' }}</td>
+                        <td>{{ habitude.bainBouche ? '<i class="fa-solid fa-check"></i>' : '<i class="fa-solid fa-xmark">' }}</td>
+                        <td>{{ habitude.filDentaire ? '<i class="fa-solid fa-check"></i>' : '<i class="fa-solid fa-xmark">' }}</td>
                     </tr>
                 {% endfor %}
             </tbody>

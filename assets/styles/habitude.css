@@ -3,7 +3,19 @@
     margin-left: 20%;
 }
 
-.TabGraph{
+.tab-bord{
+    margin-left: 20%;
+    margin-right: 20%;
+}
+
+.tab-bord>h3{
+    font-size: xx-large;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+
+.tableau-hab{
     display: flex;
     align-items: center;
 }
@@ -69,4 +81,12 @@ ul {
 
 li {
     margin: 5px 0;
+}
+
+.fa-check{
+    color: green;
+}
+
+.fa-xmark{
+    color: red;
 }

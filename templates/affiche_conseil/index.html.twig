@@ -1,4 +1,6 @@
 {# ceci est une vue partielle #}
+
+{% set titreConseil = ['Conseil 1','Conseil 2','Conseil 3','Conseil 4'] %}
 <div class="contenu">
     <h3>Conseils personnalisés</h3>
     <div class="card-container">
@@ -7,7 +9,8 @@
             {% if conseil.categorie.nom not in displayedCategories %}
                 <div class="card">
                     <div class="card-header">
-                        <h4 class="card-title">{{ conseil.categorie.nom }}</h4>
+                        <h4 class="card-title">{{ conseil.categorie.nom }} </h4>
+                        {# il faut changer le nom des catégories #}
                     </div>
                     <div class="card-body">
                         <ul>
