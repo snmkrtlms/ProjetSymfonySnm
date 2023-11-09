@@ -24,7 +24,8 @@
                 </tr>
             </thead>
             <tbody>
-                {% set last5Habitudes = arrayObjetsHabitudes|slice(-5) %}
+                {% set last5Habitudes = arrayObjetsHabitudes|slice(-5) %} <!-- Récupérer les 5 dernières habitudes -->
+                {% set last5Habitudes = last5Habitudes|sort((a, b) => a.dateBrossage <=> b.dateBrossage) %} <!-- Trier la date dans le tableau -->
                 {% for habitude in last5Habitudes %}
                     <tr>
                         <td>{{ habitude.dateBrossage | date("d-m-Y") }}</td>

@@ -17,15 +17,15 @@
         <header>
         <!-- Sidebar -->
         <nav id="sidebarMenu" class="collapse d-lg-block sidebar collapse bg-white">
-            <!-- <div class="position-sticky"> -->
+            <div class="position-sticky">
             <div class="list-group list-group-flush mx-3 mt-4">
                 <a href="#" class="list-group-item list-group-item-action py-2 ripple" aria-current="true">
                 <i class="fas fa-solid fa-user me-3"></i><span>Mon profil</span></a>
                 
-                <a href="{{ path ('app_habitude') }}" class="list-group-item list-group-item-action py-2 ripple">
+                <a href="{{ path ("form_hab") }}" class="list-group-item list-group-item-action py-2 ripple">
                 <i class="fas fa-solid fa-pen me-3"></i><span>Formulaire</span></a>
                 
-                <a href="{{ path ("habitude_all") }}" class="list-group-item list-group-item-action py-2 ripple">
+                <a href="{{ path ("tableau_bord") }}" class="list-group-item list-group-item-action py-2 ripple">
                     <i class="fas fa-solid fa-gauge me-3"></i><span>Tableau de bord</span></a>
                     
                 <a href="{{ path ("app_logout") }}" class="list-group-item list-group-item-action py-2 ripple">
@@ -40,7 +40,7 @@
             <!-- Container wrapper -->
             <div class="container-fluid">
             <!-- Brand -->
-            <a id="site" class="navbar-brand" href="{{ path ("habitude_all") }}"><p class="logo">SmileCare<p></a>
+            <a id="site" class="navbar-brand" href="{{ path ("tableau_bord") }}"><p class="logo">SmileCare<p></a>
                 
                 <!-- Right links -->
             <ul class="navbar-nav ms-auto d-flex flex-row">

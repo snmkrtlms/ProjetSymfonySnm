@@ -10,10 +10,10 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
-class HabitudeController extends AbstractController
+class TableauBordController extends AbstractController
 {
     //action pour afficher tous les habitudes
-    #[Route("/habitude/all", name:"habitude_all")]
+    #[Route("/tableauBord", name:"tableau_bord")]
     public function habitudeAll(ManagerRegistry $doctrine){
 
         $user = $this->getUser();
@@ -25,13 +25,13 @@ class HabitudeController extends AbstractController
         
         $vars = ['arrayObjetsHabitudes' => $arrayObjetsHabitudes];
 
-        return $this->render('habitude/habitude_all.html.twig', $vars);
+        return $this->render('tableauBord/tableauBord.html.twig', $vars);
 
         
     }
 
     //action pour ajouter une habitude
-    #[Route('/habitude/add', name: 'app_habitude')]
+    #[Route('/formulaire/habitude', name: 'form_hab')]
     public function habitudeAdd(Request $request, ManagerRegistry $doctrine)
     {
         $user = $this->getUser();
@@ -45,26 +45,27 @@ class HabitudeController extends AbstractController
                                                 $habitude,
                                                 [
                                                     'method' => 'POST',
-                                                    'action' => $this->generateUrl('app_habitude')
+                                                    'action' => $this->generateUrl('form_hab')
                                                 ]);
 
         // Gérez la soumission du formulaire
         $formulaireHabitude->handleRequest($request);
+        $today = new \DateTime('today');
+        $em = $doctrine->getManager();
+        $habitudeRepository = $em->getRepository(Habitude::class);
+        $habitudeDuJour = $habitudeRepository->findOneBy(['user' => $user, 'dateBrossage' => $today]);
 
-        if ($formulaireHabitude->isSubmitted() && $formulaireHabitude->isValid()) {
+        if ($formulaireHabitude->isSubmitted() && $formulaireHabitude->isValid()){
             $em = $doctrine->getManager();
             $em->persist($habitude);
             $em->flush();
 
-            return $this->redirectToRoute("habitude_all");
+            return $this->redirectToRoute("tableau_bord");
         }
-
         else{
             // on envoie un objet Form à la vue
             $vars = ['formulaireHabitude' => $formulaireHabitude];
-        
-            return $this->render('/habitude/index.html.twig', $vars);
+            return $this->render('tableauBord/formHab.html.twig', $vars);
         }
     }
-    
 }

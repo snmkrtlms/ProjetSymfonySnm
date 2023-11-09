@@ -7,7 +7,7 @@
     display: flex;
     align-items: center;
     justify-content: space-around;
-    height: 80vh;
+    height: 86vh;
 }
 
 .info{
@@ -17,7 +17,7 @@
     justify-content: center;
     background-color: #007bff;
     height: 82%;
-    /* border-radius: 50px 0 0 50px; */
+    /* border-radius: 50px 0 0 50px;*/
 }
 
 .info h3 {
@@ -48,8 +48,11 @@ h3 {
 }
 
 /* Styles pour les messages d'erreur du formulaire */
-.form-errors {
-    color: red;
+.alert-error {
+    background-color: #ed8686 !important; /* Couleur de l'arrière-plan */
+    color: #ffffff !important; /* Couleur du texte */
+    font-weight: bold; /* Gras */
+    /* Autres styles CSS personnalisés */
 }
 
 /* Styles pour le bouton Enregistrer */

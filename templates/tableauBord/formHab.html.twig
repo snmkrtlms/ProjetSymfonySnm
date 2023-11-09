@@ -15,13 +15,13 @@
         <div class="form">
         <h3>Formulaire d'habitude d'hygiène bucco-dentaire</h3>
     
-        {{ form_errors(formulaireHabitude) }}
-
         {{ form_start(formulaireHabitude)}}
+        
+        {{ form_errors(formulaireHabitude) }}
             
-            {{ form_label(formulaireHabitude.dateBrossage, 'Date de votre brossage dentaire :') }}
             {{ form_row(formulaireHabitude.dateBrossage,{
                 'name':'',
+                'label': 'Date de votre brossage dentaire :'
             }) }}
 
             {{ form_label(formulaireHabitude.nbBrossage, 'Fréquence du brossage de ce jour :') }}
