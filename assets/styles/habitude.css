@@ -1,77 +1,155 @@
-
+/* première div qui englobe le tout */
+body {
+    background-color:  rgb(245, 243, 243);
+}
 .page{
-    margin-left: 20%;
+    margin-top: 100px;
+    margin-left: 250px;
+    transition: 0.5s;
+    /* z-index: 1; */
 }
 
+#check:checked ~ .page{
+    margin-left: 60px;
+}
+
+#check{
+    display: none;
+}
+
+/* div qui englobe le tab et le graph */
 .tab-bord{
-    margin-left: 20%;
-    margin-right: 20%;
+    display: flex;
+    margin-left: 5%;
+    margin-right: 5%;
 }
 
-.tab-bord>h3{
-    font-size: xx-large;
+.page>h3{
+    margin-left: 5%;
+    font-size: x-large;
     font-family: 'Montserrat', sans-serif;
     font-weight: bold;
     letter-spacing: 2px;
+    margin-bottom: 50px;
 }
 
-.tableau-hab{
+/* div qui englobe le tab */
+.tableau-hab {
     display: flex;
+    justify-content: center;
     align-items: center;
-}
-
-.tab {
+    background-color: white;
     flex: 1;
-    padding: 20px;
-    display: flex;
     flex-direction: column;
-}
-
-#vue_graphique {
-    flex: 1;
-    margin-right:5% ;
+    padding-top: 0;
+    padding: 20px;
+    margin-right: 20px;
+    border-radius: 10px;
 }
 
 .bordered-table {
-    border-collapse: collapse; /* Fusionner les bordures des cellules */
-    width: 45%; /* Largeur de la table (ajustez selon vos besoins) */
-    border: 2px solid #333; /* Bordure de la table */
+    width: 100%;
+    border-collapse: collapse;
+    border: 1px solid #ddd; /* Bordure plus fine */
+    font-family: 'Montserrat', sans-serif;
+    font-size: 11px;
+    letter-spacing: 1px;
 }
 
 .bordered-table th, .bordered-table td {
-    border: 1px solid #333; /* Bordure des cellules */
-    padding: 8px; /* Espace intérieur des cellules (ajustez selon vos besoins) */
-    text-align: left; /* Alignement du texte dans les cellules (ajustez selon vos besoins) */
+    border: 1px solid #ddd;
+    padding: 12px;
+    text-align: left;
+    background-color: white;
 }
 
+.bordered-table th {
+    background-color: rgb(40, 104, 229); /* Couleur de fond pour les en-têtes */
+    color: white;
+}
+
+.fa-check {
+    color: green;
+}
+
+.fa-xmark {
+    color: red;
+}
+
+/* div qui englobe le graph */
+#vue_graphique {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    flex: 1;
+    padding: 20px;
+    background-color: white;
+    border-radius: 10px;
+}
+
+.chart-container canvas {
+    background-color: white; /* Fond blanc pour le graphique */
+    width: 350px;
+    height: 80px;
+
+}
+
+.contenu{
+    width: 600px;
+}
+
+/* pour conseils  */
+#vue_conseils{
+    background-color:white;
+    margin-top: 20px;
+    margin-left: 5%;
+    margin-right: 5%;
+    margin-bottom: 5%;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    border-radius: 10px;
+}
+
+/* cards pour les conseils */
 .card-container {
     display: flex;
     flex-wrap: wrap;
+    justify-content: center; /* Centre les cartes horizontalement */
 }
 
-.card {
-    flex: 0 0 calc(24% - 10px); /* Pour avoir 4 cartes par ligne (25% de la largeur moins un espacement de 20px) */
+.card{
+    flex: 0 0 calc(40% - 10px); /* Ajustez la largeur des cartes en fonction de vos besoins */
     margin: 10px;
-    border: 1px solid #e0e0e0;
+    border: 1px solid #ffffff;
     border-radius: 5px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    background-color: rgb(249, 249, 249);
 }
 
 .card-header {
-    background-color: #007bff;
+    background-color: rgb(40, 104, 229);
     color: #fff;
-    padding: 10px;
+    padding: 5px;
     border-top-left-radius: 5px;
     border-top-right-radius: 5px;
 }
 
 .card-title {
-    font-size: 1.25rem;
+    font-size: 20px;
+    letter-spacing: 3px;
     margin: 0;
+    padding: 15px;
+    font-family: 'Montserrat', sans-serif;
 }
 
 .card-body {
     padding: 15px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 15px;
+    letter-spacing: 1px;
 }
 
 ul {
@@ -83,10 +161,22 @@ li {
     margin: 5px 0;
 }
 
-.fa-check{
-    color: green;
+.tab-bord h3, #vue_graphique h3, #vue_conseils {
+    font-family:'Montserrat', sans-serif;
+    letter-spacing: 2px;
 }
 
-.fa-xmark{
-    color: red;
+.tab-bord p, #vue_graphique p, #vue_conseils p{
+    margin-top: 0;
+    font-family:'Montserrat', sans-serif;
+    letter-spacing: 1px;
+    font-style: italic;
+    font-size: 12px;
+    font-weight: bold;
+
+}
+
+.form-rep label.classe-supplementaire {
+    /* margin-left: 12%; */
+    font-weight: bold;
 }

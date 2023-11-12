@@ -6,55 +6,59 @@
 
 {% block body %}
 <div class="page">
-
-    <div class="contenu">
-        <div class="info">
-        <h3>BLABLABLABLA</h3>
-        </div>
-
-        <div class="form">
-        <h3>Formulaire d'habitude d'hygiène bucco-dentaire</h3>
+    <h3>Enregistrement d'Habitudes Dentaires :</h3>
     
+    <div class="form">
+        <div class="form-rep">
         {{ form_start(formulaireHabitude)}}
         
         {{ form_errors(formulaireHabitude) }}
-            
+                
             {{ form_row(formulaireHabitude.dateBrossage,{
                 'name':'',
-                'label': 'Date de votre brossage dentaire :'
+                'label': 'Date de votre brossage dentaire :',
+                'label_attr': {'class': formulaireHabitude.dateBrossage.vars.block_prefixes[0] != 'radio' ? 'classe-supplementaire' : ''},
+                
             }) }}
 
-            {{ form_label(formulaireHabitude.nbBrossage, 'Fréquence du brossage de ce jour :') }}
             {{ form_row(formulaireHabitude.nbBrossage,{
                 'name':'',
+                'label':'Quelle est la fréquence de votre brossage dentaire ?',
+                'label_attr': {'class': formulaireHabitude.nbBrossage.vars.block_prefixes[0] != 'radio' ? 'classe-supplementaire' : ''},
                 'attr': {
                     'min': 0,
-                    'max': 5
+                    'max': 5,
                 }
             }) }}
 
             {{ form_row(formulaireHabitude.nettLangue,{
                 'name':'',
-                'label':'Avez-vous nettoyé votre langue ?',
+                'label':'Avez-vous procédé au nettoyage de votre langue ?',
+                'label_attr': {'class': formulaireHabitude.nettLangue.vars.block_prefixes[0] != 'radio' ? 'classe-supplementaire' : ''}
             }) }}
 
             {{ form_row(formulaireHabitude.filDentaire,{
                 'name':'',
-                'label':'Avez-vous utilisé le fil dentaire ?',
+                'label':'Avez-vous utilisé le fil dentaire au cours de la journée ?',
+                'label_attr': {'class': formulaireHabitude.filDentaire.vars.block_prefixes[0] != 'radio' ? 'classe-supplementaire' : ''}
             }) }}
 
             {{ form_row(formulaireHabitude.bainBouche,{
                 'name':'',
-                'label':'Avez-vous utilisé un bain de bouche ?',
+                'label':'Avez-vous effectué un bain de bouche ?',
+                'label_attr': {'class': formulaireHabitude.bainBouche.vars.block_prefixes[0] != 'radio' ? 'classe-supplementaire' : ''}
             }) }}
 
             <div class = "form-button">
             <button type="submit" class="send">Enregistrer</button>
             </div>
 
+            {{ form_end(formulaireHabitude) }}
         </div>
-        
-        {{ form_end(formulaireHabitude) }}
+
+        <!-- <div class="info">
+            <p>Une fois le formulaire complété, tu accéderas instantanément à un tableau de bord visuel. Ce dernier te fournira un aperçu clair de tes données sous forme de graphiques et tableaux. De plus, tu bénéficieras de conseils personnalisés pour enrichir tes habitudes quotidiennes.</p>
+        </div> -->
     </div>
 </div>
 

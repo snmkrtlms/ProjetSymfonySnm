@@ -145,6 +145,13 @@ h1{
     right: 30px; /* Ajustez la position horizontale (droite) */
 }
 
+@media(min-width:500px){
+    .help a{
+        top: 10px;
+        right: 20px;
+        color: rgb(40, 104, 229);
+    }
+}
 
 .help a {
     text-decoration: none; /* Supprimer les soulignements par défaut des liens */

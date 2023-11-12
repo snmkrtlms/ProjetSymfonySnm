@@ -10,15 +10,15 @@ import './styles/app.css';
 import './styles/habitude.css';
 
 // rajouter le css de bootstrap
-import 'bootstrap/dist/css/bootstrap.css';
+// import 'bootstrap/dist/css/bootstrap.css';
 
-jquery
-const $ = require ('jquery');
-window.jQuery = $;
-window.$ = $;
+// jquery
+// const $ = require ('jquery');
+// window.jQuery = $;
+// window.$ = $;
 
 // importer bootstrap
-import 'bootstrap';
+// import 'bootstrap';
 
 
 // alert("Hello");

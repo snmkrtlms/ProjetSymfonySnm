@@ -2,13 +2,15 @@
 
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
+<h3>Graphique :</h3>
+<p>Avec ce visuel, tu pourras suivre et améliorer tes habitudes de brossage.</p>
+
 <div class="contenu">
 
-<h3>Graphique</h3>
-
-<div style="width: 100%;">
+<div class="chart-container">
     <canvas id="myChart"></canvas>
 </div>
+
 
 <script>
     let dateBrossage = {{ chartData.dateBrossage|json_encode|raw }};
@@ -52,7 +54,7 @@
         data: {
             labels: labels,
             datasets: [{
-                label: 'Fréquence de brossage/ Jour',
+                label: 'Fréquence de brossage par jour',
                 data: data,
                 borderWidth: 0,
                 {# borderColor: 'black', #}
@@ -65,11 +67,17 @@
                 y: {
                     beginAtZero: true,
                     max: 6,
-                    ticks: {                                                               
-                    stepSize: 1 // force l'echelle à une unitée
-                        },
+                    ticks: {
+                        stepSize: 1 // force l'echelle à une unitée
+                    },
                 }
-            }
+            },
+            plugins: {
+                legend: {
+                    display: true,
+                    position: 'top',
+                }
+            },
         }
     });
 </script>

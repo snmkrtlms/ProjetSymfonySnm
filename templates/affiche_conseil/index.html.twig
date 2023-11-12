@@ -1,16 +1,16 @@
 {# ceci est une vue partielle #}
 
 {% set titreConseil = ['Conseil 1','Conseil 2','Conseil 3','Conseil 4'] %}
-<div class="contenu">
-    <h3>Conseils personnalisés</h3>
+    <h3>Conseils personnalisés :</h3>
+    <p>Ici, tu trouveras des conseils personnalisés pour améliorer tes habitudes et optimiser ta routine dentaire.</p>
     <div class="card-container">
         {% set displayedCategories = [] %}
+        {% set titreIndex = 0 %}
         {% for conseil in conseils %}
             {% if conseil.categorie.nom not in displayedCategories %}
                 <div class="card">
                     <div class="card-header">
-                        <h4 class="card-title">{{ conseil.categorie.nom }} </h4>
-                        {# il faut changer le nom des catégories #}
+                        <h4 class="card-title">{{ titreConseil[titreIndex] }}</h4>
                     </div>
                     <div class="card-body">
                         <ul>
@@ -20,7 +20,8 @@
                     </div>
                 </div>
                 {% set displayedCategories = displayedCategories|merge([conseil.categorie.nom]) %}
+                {% set titreIndex = (titreIndex + 1) % titreConseil|length %}
             {% endif %}
         {% endfor %}
     </div>
-</div>
+

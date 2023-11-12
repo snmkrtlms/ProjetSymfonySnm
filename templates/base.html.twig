@@ -13,60 +13,38 @@
         {% endblock %}
     </head>
     <body>
-        <!--Main Navigation-->
+        <input type="checkbox" id="check">
+        <!--header area start-->
         <header>
-        <!-- Sidebar -->
-        <nav id="sidebarMenu" class="collapse d-lg-block sidebar collapse bg-white">
-            <div class="position-sticky">
-            <div class="list-group list-group-flush mx-3 mt-4">
-                <a href="#" class="list-group-item list-group-item-action py-2 ripple" aria-current="true">
-                <i class="fas fa-solid fa-user me-3"></i><span>Mon profil</span></a>
-                
-                <a href="{{ path ("form_hab") }}" class="list-group-item list-group-item-action py-2 ripple">
-                <i class="fas fa-solid fa-pen me-3"></i><span>Formulaire</span></a>
-                
-                <a href="{{ path ("tableau_bord") }}" class="list-group-item list-group-item-action py-2 ripple">
-                    <i class="fas fa-solid fa-gauge me-3"></i><span>Tableau de bord</span></a>
-                    
-                <a href="{{ path ("app_logout") }}" class="list-group-item list-group-item-action py-2 ripple">
-                    <i class="fas fa-solid fa-right-from-bracket me-3"></i><span>Se déconnecter</span></a>
-                    
-            </div>
-            </div>
-        </nav>
-        
-        <!-- Navbar -->
-        <nav id="main-navbar" class="navbar navbar-dark bg-primary fixed-top">
-            <!-- Container wrapper -->
-            <div class="container-fluid">
-            <!-- Brand -->
-            <a id="site" class="navbar-brand" href="{{ path ("tableau_bord") }}"><p class="logo">SmileCare<p></a>
-                
-                <!-- Right links -->
-            <ul class="navbar-nav ms-auto d-flex flex-row">
-                <li class="msg">Bienvenue {{ app.user.prenom}} ! </li>
-            </ul>
-
-            <ul class="navbar-nav ms-auto d-flex flex-row">
-                <li><a href="{{ path ("app_article") }}">Sais-tu ?</a></li>
-                <li><a href="#">À propos</a></li>
-                <li><a href="#">Contact</a></li>
-            </ul>
-            </div>
-            <!-- Container wrapper -->
-        </nav>
-        <!-- Navbar -->
+        <label for="check">
+            <i class="fas fa-bars" id="sidebar_btn"></i>
+        </label>
+        <div class="left_area">
+            <a href="{{ path('app_login') }}">SmileCare</a>
+        </div>
+        <div class="right_area">
+            <a href="#" class="help_btn">Besoin d'aide?</a>
+        </div>
         </header>
-        <!--Main Navigation-->
-        
-        <!--Main layout-->
-        <main style="margin-top: 58px;">
-        <div class="container pt-4"></div>
-        </main>
-        <!--Main layout-->
+        <!--header area end-->
+
+        <!--sidebar start-->
+        <div class="sidebar">
+            <center>
+                <img src="{{ asset('images/profil.jpg') }}" class="profile_image" alt="">
+                <h4>Hey {{ app.user.prenom}} !</h4>
+            </center>
+            <a href="#"><i class="fa-solid fa-user"></i><span>Profil</span></a>    
+            <a href="{{ path ("form_hab") }}"><i class="fas fa-solid fa-pen"></i><span>Formulaire</span></a>
+            <a href="{{ path ("tableau_bord") }}"><i class="fas fa-solid fa-gauge"></i><span>Tableau de bord</span></a>
+            <a href="{{ path ("app_article") }}"><i class="fa-solid fa-newspaper"></i><span>Articles</span></a>
+            <a href="#"><i class="fas fa-info-circle"></i><span>À propos</span></a>
+            <a href="{{ path ("app_logout") }}"><i class="fas fa-solid fa-right-from-bracket"></i><span>Se déconnecter</span></a>
+        </div>
+        <!--sidebar end-->
     </body>
 </html>
-        
+
 {% block body %}
 {% endblock %}
         

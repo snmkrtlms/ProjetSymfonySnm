@@ -1,54 +1,55 @@
 {% extends "base.html.twig" %}
 
-
 {% block stylesheets %}
-    {{ encore_entry_link_tags('habitude') }}
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
+{{ encore_entry_link_tags('habitude') }}
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
 {% endblock %}
 
 {% block body %}
 
-<div class="tab-bord">
+<div class="page">
+    
     <h3>Tableau de Bord :</h3>
-    <div class="tableau-hab">
-        <div class="tab">
-        <h3>Historique des habitudes</h3>
-        <table class="bordered-table">
-            <thead>
-                <tr>
-                    <th>Date de Brossage</th>
-                    <th>Nombre de Brossages</th>
-                    <th>Nettoyage de Langue</th>
-                    <th>Bain de Bouche</th>
-                    <th>Fil Dentaire</th>
-                </tr>
-            </thead>
-            <tbody>
-                {% set last5Habitudes = arrayObjetsHabitudes|slice(-5) %} <!-- Récupérer les 5 dernières habitudes -->
-                {% set last5Habitudes = last5Habitudes|sort((a, b) => a.dateBrossage <=> b.dateBrossage) %} <!-- Trier la date dans le tableau -->
-                {% for habitude in last5Habitudes %}
+    <div class="tab-bord">
+        <div class="tableau-hab">
+            <h3>Historique des habitudes :</h3>
+            <p>Ce tableau te permettra d'avoir un aperçu de tes habitudes. </p>
+            <table class="bordered-table">
+                <thead>
                     <tr>
-                        <td>{{ habitude.dateBrossage | date("d-m-Y") }}</td>
-                        <td>{{ habitude.nbBrossage }}</td>
-                        <td>{{ habitude.nettLangue ? '<i class="fa-solid fa-check"></i>' : '<i class="fa-solid fa-xmark">' }}</td>
-                        <td>{{ habitude.bainBouche ? '<i class="fa-solid fa-check"></i>' : '<i class="fa-solid fa-xmark">' }}</td>
-                        <td>{{ habitude.filDentaire ? '<i class="fa-solid fa-check"></i>' : '<i class="fa-solid fa-xmark">' }}</td>
+                        <th>Date de Brossage</th>
+                        <th>Nombre de Brossages</th>
+                        <th>Nettoyage de Langue</th>
+                        <th>Bain de Bouche</th>
+                        <th>Fil Dentaire</th>
                     </tr>
-                {% endfor %}
-            </tbody>
-        </table>
+                </thead>
+                <tbody>
+                    {% set last5Habitudes = arrayObjetsHabitudes|slice(-5) %} <!-- Récupérer les 5 dernières habitudes -->
+                    {% set last5Habitudes = last5Habitudes|sort((a, b) => a.dateBrossage <=> b.dateBrossage) %} <!-- Trier la date dans le tableau -->
+                    {% for habitude in last5Habitudes %}
+                        <tr>
+                            <td>{{ habitude.dateBrossage | date("d-m-Y") }}</td>
+                            <td>{{ habitude.nbBrossage }}</td>
+                            <td>{{ habitude.nettLangue ? '<i class="fa-solid fa-check"></i>' : '<i class="fa-solid fa-xmark">' }}</td>
+                            <td>{{ habitude.bainBouche ? '<i class="fa-solid fa-check"></i>' : '<i class="fa-solid fa-xmark">' }}</td>
+                            <td>{{ habitude.filDentaire ? '<i class="fa-solid fa-check"></i>' : '<i class="fa-solid fa-xmark">' }}</td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+
+        {# incruster vue partielle ici #}
+        <div id="vue_graphique">
+        {{ render (controller ('App\\Controller\\AfficheGraphiqueController::afficherGraphique')) }}
+        </div>
     </div>
 
-    {# incruster vue partielle ici #}
-    <div id="vue_graphique">
-    {{ render (controller ('App\\Controller\\AfficheGraphiqueController::afficherGraphique')) }}
-    </div>
-</div>
-
-    {# incruster vue partielle ici #}
-    <div id="vue_conseils">
-    {{ render (controller ('App\\Controller\\ConseilController::afficherConseils')) }}
-    </div>
+        {# incruster vue partielle ici #}
+        <div id="vue_conseils">
+        {{ render (controller ('App\\Controller\\ConseilController::afficherConseils')) }}
+        </div>
 
 </div>
 
