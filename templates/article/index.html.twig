@@ -2,19 +2,54 @@
 
 {% block stylesheets %} 
 <style>
+    .article{
+        background-color:white;
+        margin-left: 5%;
+        margin-right: 5%;
+        border-radius: 10px;
+        padding: 20px;
+        margin-bottom: 5%;
+    }
+
+    .titre>h3{
+        margin-left: 5%;
+        font-size: x-large;
+        font-family: 'Montserrat', sans-serif;
+        font-weight: bold;
+        letter-spacing: 2px;
+    }
+
+    .article>p{
+        margin-left: 5%;
+        margin-right: 5%;
+        margin-bottom: 25px;
+        font-family:'Montserrat', sans-serif;
+        font-weight: bolder;
+        letter-spacing: 1px;
+        font-size: 14px;
+        line-height: 20px;;
+        font-style: italic;
+    }
+
     .custom-card {
+        margin-left: 5%;
+        margin-right: 5%;
+        margin-bottom: 25px;
+        font-family: 'Montserrat', sans-serif;
         display: flex;
         border: 1px solid #ccc;
-        margin: 10px;
+        background-color: white;
+        border-radius: 10px;
         padding: 10px;
         max-width: 90%;
     }
 
     .card-image {
-        width: 200px;
-        height: 150px;
+        width: 300px;
+        height: 250px;
         object-fit: cover;
         margin-right: 10px;
+        border-radius: 7px;
     }
 
     .card-content {
@@ -28,22 +63,45 @@
 
     .card-text {
         font-size: 16px;
+        margin-bottom: 25px;
     }
+
+    .send {
+        margin-left: 2%;
+        background-color: #007bff;
+        color: #fff;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 16px;
+        text-decoration: none;
+    }
+    
+    .send:hover {
+        background-color: #4195ef;
+    }
+
 </style>
 {% endblock %}
 
 {% block body %}
 <div class="page">
-    <h2>hello</h2>
+    <div class="titre">
+    <h3>Articles :</h3>
+    </div>
+    <div class="article">
+    <p>Explore notre collection d'articles dédiés à la santé dentaire et reste au fait des dernières tendances et innovations. Des conseils pratiques aux découvertes scientifiques, plonge dans l'univers passionnant de la dentisterie moderne</p>
     {% for article in arrayObjetsArticles|slice(0, 3) %}
         <div class="custom-card">
             <img src="{{ asset('images/image.png') }}" alt="Image de la carte" class="card-image">
             <div class="card-content">
                 <h5 class="card-title">{{ article.titre }}</h5>
                 <p class="card-text">{{ article.contenu }}</p>
-                <a href="{{ path ('home') }}" class="btn btn-primary">Go somewhere</a>
+                <a href="#" class="send">Lire plus</a>
             </div>
         </div>
     {% endfor %}
+    </div>
 </div>
 {% endblock %}

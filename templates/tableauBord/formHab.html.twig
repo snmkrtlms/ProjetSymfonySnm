@@ -6,7 +6,7 @@
 
 {% block body %}
 <div class="page">
-    <h3>Enregistrement d'Habitudes Dentaires :</h3>
+    <h3>Formulaire d'enregistrement d'Habitudes Dentaires :</h3>
     
     <div class="form">
         <div class="form-rep">
@@ -16,14 +16,14 @@
                 
             {{ form_row(formulaireHabitude.dateBrossage,{
                 'name':'',
-                'label': 'Date de votre brossage dentaire :',
+                'label': 'Date de ton brossage dentaire :',
                 'label_attr': {'class': formulaireHabitude.dateBrossage.vars.block_prefixes[0] != 'radio' ? 'classe-supplementaire' : ''},
                 
             }) }}
 
             {{ form_row(formulaireHabitude.nbBrossage,{
                 'name':'',
-                'label':'Quelle est la fréquence de votre brossage dentaire ?',
+                'label':'Combien de fois as-tu brossé tes dents ce jour?',
                 'label_attr': {'class': formulaireHabitude.nbBrossage.vars.block_prefixes[0] != 'radio' ? 'classe-supplementaire' : ''},
                 'attr': {
                     'min': 0,
@@ -33,19 +33,19 @@
 
             {{ form_row(formulaireHabitude.nettLangue,{
                 'name':'',
-                'label':'Avez-vous procédé au nettoyage de votre langue ?',
+                'label':'As-tu procédé au nettoyage de ta langue ?',
                 'label_attr': {'class': formulaireHabitude.nettLangue.vars.block_prefixes[0] != 'radio' ? 'classe-supplementaire' : ''}
             }) }}
 
             {{ form_row(formulaireHabitude.filDentaire,{
                 'name':'',
-                'label':'Avez-vous utilisé le fil dentaire au cours de la journée ?',
+                'label':'As-tu utilisé le fil dentaire au cours de la journée ?',
                 'label_attr': {'class': formulaireHabitude.filDentaire.vars.block_prefixes[0] != 'radio' ? 'classe-supplementaire' : ''}
             }) }}
 
             {{ form_row(formulaireHabitude.bainBouche,{
                 'name':'',
-                'label':'Avez-vous effectué un bain de bouche ?',
+                'label':'As-tu effectué un bain de bouche ?',
                 'label_attr': {'class': formulaireHabitude.bainBouche.vars.block_prefixes[0] != 'radio' ? 'classe-supplementaire' : ''}
             }) }}
 
@@ -56,9 +56,10 @@
             {{ form_end(formulaireHabitude) }}
         </div>
 
-        <!-- <div class="info">
+        <div class="info">
+            <i class="fa-sharp fa-solid fa-question"></i>
             <p>Une fois le formulaire complété, tu accéderas instantanément à un tableau de bord visuel. Ce dernier te fournira un aperçu clair de tes données sous forme de graphiques et tableaux. De plus, tu bénéficieras de conseils personnalisés pour enrichir tes habitudes quotidiennes.</p>
-        </div> -->
+        </div>
     </div>
 </div>
 

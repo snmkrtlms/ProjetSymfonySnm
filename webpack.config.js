@@ -10,7 +10,7 @@ Encore
     // directory where compiled assets will be stored
     .setOutputPath('public/build/')
     // public path used by the web server to access the output path
-    // .setPublicPath('/build') 
+    // .setPublicPath('/build/') 
     //si on veut travailler localement, décommenter et commenter la ligne suivante
     .setPublicPath('/project1/public/build/')
     // only needed for CDN's or subdirectory deploy
@@ -23,7 +23,6 @@ Encore
      * and one CSS file (e.g. app.css) if your JavaScript imports CSS.
      */
     .addEntry('app', './assets/app.js')
-    .addEntry('home', './assets/home.js')
     .addEntry('login', './assets/login.js')
     .addEntry('register', './assets/register.js')
     .addEntry('habitude', './assets/app.js')
