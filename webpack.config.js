@@ -10,9 +10,9 @@ Encore
     // directory where compiled assets will be stored
     .setOutputPath('public/build/')
     // public path used by the web server to access the output path
-    // .setPublicPath('/build/') 
+    .setPublicPath('/build/') 
     //si on veut travailler localement, décommenter et commenter la ligne suivante
-    .setPublicPath('/project1/public/build/')
+    // .setPublicPath('/project1/public/build/')
     // only needed for CDN's or subdirectory deploy
     //.setManifestKeyPrefix('build/')
 
@@ -27,6 +27,9 @@ Encore
     .addEntry('register', './assets/register.js')
     .addEntry('habitude', './assets/app.js')
     .addEntry('formulaireHab', './assets/formulaireHab.js')
+    .addEntry('profil', './assets/profil.js')
+    .addEntry('apropos', './assets/apropos.js')
+    
 
     // .addEntry('vue1', './assets/vue1.js')
 

@@ -1,0 +1,47 @@
+#check:checked ~ .profile-container{
+    margin-left:460px;
+}
+
+#check{
+    display: none;
+}
+
+.profile-container {
+    max-width: 600px;
+    margin-top: 120px;
+    margin-left: 480px;
+    margin-right: auto;
+    background: #fff;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    letter-spacing: 2px;
+    transition: 0.5s;
+}
+
+.profile-container .row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.profile-img {
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.profile-img img {
+    width: 150px;
+    border-radius: 50%;
+    border: 5px solid #fff;
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
+}
+
+.profile-name {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.col-sm-3{
+    font-weight: bold;
+}

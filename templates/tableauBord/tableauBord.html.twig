@@ -6,10 +6,6 @@
 {% endblock %}
 
 {% block body %}
-
-<div class="page">
-    
-    <h3>Tableau de Bord :</h3>
     <div class="tab-bord">
         <div class="tableau-hab">
             <h3>Historique des habitudes :</h3>
@@ -50,7 +46,5 @@
         <div id="vue_conseils">
         {{ render (controller ('App\\Controller\\ConseilController::afficherConseils')) }}
         </div>
-
-</div>
 
 {% endblock body %}

@@ -1,21 +1,21 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="UTF-8">
-        <title>{% block title %}Welcome!{% endblock %}</title>
-        <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text></svg>">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
-        {% block stylesheets %}
-            {{ encore_entry_link_tags('app') }}
-        {% endblock %}
-        {% block javascript %}
-            {{ encore_entry_link_tags('app') }}
-        {% endblock %}
-    </head>
-    <body>
-        <input type="checkbox" id="check">
-        <!--header area start-->
-        <header>
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}Welcome!{% endblock %}</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text></svg>">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
+    {% block stylesheets %}
+        {{ encore_entry_link_tags('app') }}
+    {% endblock %}
+    {% block javascript %}
+        {{ encore_entry_link_tags('app') }}
+    {% endblock %}
+</head>
+<body>
+    <input type="checkbox" id="check">
+    <!--header area start-->
+    <header>
         <label for="check">
             <i class="fas fa-bars" id="sidebar_btn"></i>
         </label>
@@ -25,26 +25,49 @@
         <div class="right_area">
             <a href="#" class="help_btn">Besoin d'aide?</a>
         </div>
-        </header>
-        <!--header area end-->
+    </header>
+    <!--header area end-->
 
-        <!--sidebar start-->
-        <div class="sidebar">
-            <center>
-                <img src="{{ asset('images/profil.jpg') }}" class="profile_image" alt="">
-                <h4>Hey {{ app.user.prenom}} !</h4>
-            </center>
-            <a href="#"><i class="fa-solid fa-user"></i><span>Profil</span></a>    
-            <a href="{{ path ("form_hab") }}"><i class="fas fa-solid fa-pen"></i><span>Formulaire</span></a>
-            <a href="{{ path ("tableau_bord") }}"><i class="fas fa-solid fa-gauge"></i><span>Tableau de bord</span></a>
-            <a href="{{ path ("app_article") }}"><i class="fa-solid fa-newspaper"></i><span>Articles</span></a>
-            <a href="#"><i class="fas fa-info-circle"></i><span>À propos</span></a>
-            <a href="{{ path ("app_logout") }}"><i class="fas fa-solid fa-right-from-bracket"></i><span>Se déconnecter</span></a>
-        </div>
-        <!--sidebar end-->
-    </body>
+    <!--sidebar start-->
+    <div class="sidebar">
+        <center>
+            <img src="{{ asset('images/profil/' ~ app.user.imageProfil) }}" class="profile_image" alt="">
+            <h4>Hey {{ app.user.prenom}} !</h4>
+        </center>
+        <a href="{{ path ("profil_show") }}"><i class="fa-solid fa-user"></i><span>Profil</span></a>    
+        <a href="{{ path ("form_hab") }}"><i class="fas fa-solid fa-pen"></i><span>Formulaire</span></a>
+        <a href="{{ path ("tableau_bord") }}"><i class="fas fa-solid fa-gauge"></i><span>Tableau de bord</span></a>
+        <a href="{{ path ("app_article") }}"><i class="fa-solid fa-newspaper"></i><span>Articles</span></a>
+        <a href="{{ path ("apropos") }}"><i class="fas fa-info-circle"></i><span>À propos</span></a>
+        <a href="{{ path ("app_logout") }}"><i class="fas fa-solid fa-right-from-bracket"></i><span>Se déconnecter</span></a>
+    </div>
+    <!--sidebar end-->
+    
+    <script>
+        // Récupérer la case à cocher et le bouton de la barre de navigation
+        const checkBox = document.getElementById('check');
+        const sidebarBtn = document.getElementById('sidebar_btn');
+        const sidebar = document.querySelector('.sidebar');
+
+        // Vérifier s'il y a une valeur stockée dans le localStorage
+        const isSidebarOpen = localStorage.getItem('sidebarOpen');
+
+        // Si la barre latérale était ouverte avant le rafraîchissement, la rouvrir
+        if (isSidebarOpen === 'true') {
+            sidebar.classList.add('active');
+            checkBox.checked = true;
+        }
+
+        // Écouter les clics sur le bouton de la barre de navigation
+        document.getElementById('sidebar_btn').addEventListener('click', function() {
+            sidebar.classList.toggle('active'); // Toggle la classe 'active' pour afficher ou cacher la barre latérale
+
+            // Stocker l'état de la barre latérale dans le localStorage
+            localStorage.setItem('sidebarOpen', sidebar.classList.contains('active'));
+        });
+    </script>
+</body>
 </html>
 
 {% block body %}
 {% endblock %}
-        

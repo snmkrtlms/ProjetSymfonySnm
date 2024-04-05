@@ -2,15 +2,13 @@
 body {
     background-color:  rgb(245, 243, 243);
 }
-.page{
-    margin-top: 100px;
-    margin-left: 250px;
-    transition: 0.5s;
-    /* z-index: 1; */
+
+#check:checked ~ .tab-bord{
+    margin-left: 110px;
 }
 
-#check:checked ~ .page{
-    margin-left: 60px;
+#check:checked ~ #vue_conseils{
+    margin-left: 110px;
 }
 
 #check{
@@ -20,24 +18,15 @@ body {
 /* div qui englobe le tab et le graph */
 .tab-bord{
     display: flex;
-    margin-left: 5%;
-    margin-right: 5%;
-    margin-top: 25px;
-}
-
-.page>h3{
-    margin-left: 5%;
-    font-size: x-large;
-    font-family: 'Montserrat', sans-serif;
-    font-weight: bold;
-    letter-spacing: 2px;
-    margin-bottom: 0;
+    margin-top: 120px;
+    margin-left: 300px;
+    margin-right: 50px;
+    transition: 0.5s;
 }
 
 /* div qui englobe le tab */
 .tableau-hab {
     display: flex;
-    justify-content: center;
     align-items: center;
     background-color: white;
     flex: 1;
@@ -87,6 +76,7 @@ body {
     padding: 20px;
     background-color: white;
     border-radius: 10px;
+    transition: 0.5s;
 }
 
 .chart-container canvas {
@@ -104,14 +94,15 @@ body {
 #vue_conseils{
     background-color:white;
     margin-top: 20px;
-    margin-left: 5%;
-    margin-right: 5%;
+    margin-left: 300px;
+    margin-right: 50px;
     margin-bottom: 5%;
     padding: 20px;
     display: flex;
     align-items: center;
     flex-direction: column;
     border-radius: 10px;
+    transition: 0.5s;
 }
 
 /* cards pour les conseils */
@@ -164,7 +155,7 @@ li {
 
 .tab-bord h3, #vue_graphique h3, #vue_conseils {
     font-family:'Montserrat', sans-serif;
-    letter-spacing: 2px;
+    letter-spacing: 2px; 
 }
 
 .tab-bord p, #vue_graphique p, #vue_conseils p{

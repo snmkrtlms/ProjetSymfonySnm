@@ -1,0 +1,50 @@
+{% extends 'base.html.twig' %}
+
+{% block stylesheets %}
+{{ encore_entry_link_tags('profil') }}
+{% endblock %}
+
+{% block title %}Profil{% endblock %}
+
+{% block body %}
+<div class="profile-container">
+    <div class="profile-img">
+        <img src="{{ asset('images/profil/' ~ user.imageProfil) ? asset('images/profil/' ~ user.imageProfil) : asset('images/profil.jpg') }}" alt="Photo de profil">
+    </div>
+    <div class="profile-name">
+        <h2>{{ user.prenom }} {{ user.nom }}</h2>
+    </div>
+    <div class="col-lg-8">
+        <div class="card mb-4">
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-sm-3">
+                        <p class="mb-0">Email</p>
+                    </div>
+                    <div class="col-sm-9">
+                        <p class="text-muted mb-0">{{ user.email }}</p>
+                    </div>
+                </div>
+                <hr>
+                <div class="row">
+                    <div class="col-sm-3">
+                        <p class="mb-0">Date de naissance</p>
+                    </div>
+                    <div class="col-sm-9">
+                        <p class="text-muted mb-0">{{ user.dateNaissance ? user.dateNaissance|date('Y-m-d') : 'Non renseignée' }}</p>
+                    </div>
+                </div>
+                <hr>
+                <div class="row">
+                    <div class="col-sm-3">
+                        <p class="mb-0">Ville</p>
+                    </div>
+                    <div class="col-sm-9">
+                        <p id="villeText" class="text-muted mb-0">{{ user.ville ? user.ville : 'Non renseignée' }}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,64 @@
+#check:checked ~ .container{
+    margin-left: 320px;
+}
+
+#check{
+    display: none;
+}
+
+.container {
+    width: 900px;
+    margin-top: 150px;
+    margin-left: 380px;
+    margin-right: auto;
+    padding: 20px;
+    background-color: white;
+    font-family: 'Montserrat', sans-serif;
+    transition: 0.5s;
+}
+
+.about-section {
+    display: flex;
+    flex-direction: row;
+}
+
+.about-content {
+    flex: 2;
+    padding: 20px;
+}
+
+.about-content h1 {
+    font-size: 32px;
+}
+
+.feature-icons {
+    display: flex;
+}
+
+.feature-icon {
+    margin-right: 45px;
+    text-align: center;
+}
+
+.feature-icon p {
+    font-size: 16px;
+}
+
+.feature-icon i {
+    font-size: 24px;
+}
+
+.about-image {
+    flex: 1;
+    position: relative;
+}
+
+.about-image img {
+    border-radius: 20px;
+    width: 400px;
+}
+
+.fonction{
+    font-weight: bold;
+    font-size: 18px;
+}

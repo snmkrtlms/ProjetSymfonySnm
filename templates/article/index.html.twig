@@ -2,9 +2,22 @@
 
 {% block stylesheets %} 
 <style>
+    #check:checked ~ .page{
+        margin-left: 130px;
+    }
+    
+    #check{
+        display: none;
+    }
+
+    .page{
+        margin-left: 310px;
+        transition: 0.5s;
+    }
+
     .article{
         background-color:white;
-        margin-left: 5%;
+        margin-top: 60px;
         margin-right: 5%;
         border-radius: 10px;
         padding: 20px;
