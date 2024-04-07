@@ -1,8 +1,46 @@
 {% extends "base.html.twig" %}
 
-{% block body %}
-<div class = "page">
-<h2>Bienvenue {{ app.user.prenom}} !</h2>
-</div>
+{% block stylesheets %}
+{{ encore_entry_link_tags('app') }}
 {% endblock %}
 
+{% block title %}Accueil{% endblock %}
+
+{% block body %}
+    <div class="hero-section">
+        <div class="image-container">
+            <img src="{{ asset('images/shapes4.png') }}" alt="Description de l'image">
+        </div>
+        <div class="text-content">
+            <h1>Bienvenue sur <span class="brand-name">SmileCare</span> {{ app.user.prenom }} !</h1>
+            <p>Prenez soin de votre sourire avec notre application de suivi de santé dentaire.</p>
+            <div class="arrow">
+                <a href="#features-section"><i class="fas fa-chevron-down"></i></a>
+            </div>
+        </div>
+    </div>
+    
+    <div id="features-section" class="features-section">
+        <h2 style="text-align: center;">Fonctionnalités principales</h2>
+        <div class="feature-container">
+            <div class="feature">
+                <i class="fas fa-solid fa-pen"></i>
+                <h3>Formulaire de suivi</h3>
+                <p>Enregistrez vos habitudes quotidiennes d'hygiène dentaire pour un suivi précis.</p>
+            </div>
+            <div class="feature">
+                <i class="fas fa-solid fa-gauge"></i>
+                <h3>Tableau de bord interactif</h3>
+                <p>Visualisez vos progrès et obtenez des conseils personnalisés pour améliorer votre santé dentaire.</p>
+            </div>
+            <div class="feature">
+                <i class="fa-solid fa-newspaper"></i>
+                <h3>Articles informatifs</h3>
+                <p>Accédez à une bibliothèque d'articles sur l'hygiène et les dernières recherches en dentisterie.</p>
+            </div>
+        </div>
+        <div style="text-align: center;">
+            <a href="{{ path("form_hab") }}" class="btn btn-primary">Commencer</a>
+        </div>
+    </div>
+{% endblock %}

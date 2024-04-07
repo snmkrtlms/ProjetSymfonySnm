@@ -41,6 +41,8 @@
     border-radius: 5px;
     cursor: pointer;
     font-size: 16px;
+    font-family:'Montserrat', sans-serif;
+    letter-spacing: 2px;
 }
 
 .send:hover {
@@ -103,6 +105,8 @@ form label{
     flex-direction: column;
     border-radius: 10px;
     background-color: rgb(255, 255, 255);
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
 }   
 
 /* #habitude_form_nettLangue_0, #habitude_form_filDentaire_0, #habitude_form_bainBouche_0{

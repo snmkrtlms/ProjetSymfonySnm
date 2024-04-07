@@ -13,14 +13,14 @@
                 
             {{ form_row(formulaireHabitude.dateBrossage,{
                 'name':'',
-                'label': 'Date de ton brossage dentaire :',
+                'label': 'Date de votre brossage dentaire :',
                 'label_attr': {'class': formulaireHabitude.dateBrossage.vars.block_prefixes[0] != 'radio' ? 'classe-supplementaire' : ''},
                 
             }) }}
 
             {{ form_row(formulaireHabitude.nbBrossage,{
                 'name':'',
-                'label':'Combien de fois as-tu brossé tes dents ce jour?',
+                'label':'Combien de fois avez-vous brossé vos dents ce jour?',
                 'label_attr': {'class': formulaireHabitude.nbBrossage.vars.block_prefixes[0] != 'radio' ? 'classe-supplementaire' : ''},
                 'attr': {
                     'min': 0,
@@ -30,19 +30,19 @@
 
             {{ form_row(formulaireHabitude.nettLangue,{
                 'name':'',
-                'label':'As-tu procédé au nettoyage de ta langue ?',
+                'label':'Avez-vous procédé au nettoyage de votre langue ?',
                 'label_attr': {'class': formulaireHabitude.nettLangue.vars.block_prefixes[0] != 'radio' ? 'classe-supplementaire' : ''}
             }) }}
 
             {{ form_row(formulaireHabitude.filDentaire,{
                 'name':'',
-                'label':'As-tu utilisé le fil dentaire au cours de la journée ?',
+                'label':'Avez-vous utilisé le fil dentaire au cours de la journée ?',
                 'label_attr': {'class': formulaireHabitude.filDentaire.vars.block_prefixes[0] != 'radio' ? 'classe-supplementaire' : ''}
             }) }}
 
             {{ form_row(formulaireHabitude.bainBouche,{
                 'name':'',
-                'label':'As-tu effectué un bain de bouche ?',
+                'label':'Avez-vous effectué un bain de bouche ?',
                 'label_attr': {'class': formulaireHabitude.bainBouche.vars.block_prefixes[0] != 'radio' ? 'classe-supplementaire' : ''}
             }) }}
 

@@ -127,3 +127,133 @@ label #sidebar_btn:hover{
     margin-left: 170px;
     width: 80px;
 }
+/* Styles pour le hero-section */
+#check:checked ~ .hero-section{
+    margin-left: 220px;
+}
+
+#check{
+    display: none;
+}
+.brand-name {
+    font-family: 'Satisfy', cursive;
+}
+
+/* Style pour la flèche */
+.arrow {
+    position:relative;
+    top: 20px;
+    bottom: 20px;
+    right: 20px;
+}
+
+.arrow a {
+    color: rgb(40, 104, 229);
+    font-size: 2rem;
+}
+
+.hero-section {
+    font-family:'Montserrat', sans-serif;
+    letter-spacing: 2px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 140px;
+    margin-left: 310px;
+    margin-bottom: 200px;
+    padding: 50px;
+    width: 1050px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    transition: 0.5s;
+}
+
+.image-container {
+    width: 300px;
+    margin-right: 80px;
+}
+
+.image-container img{
+    width: 300px;
+}
+
+.text-content {
+    flex: 1;
+    text-align: center;
+}
+
+.hero-section h1 {
+    font-size: 3rem;
+    margin-bottom: 20px;
+}
+
+.hero-section p {
+    font-size: 1.2rem;
+    margin-bottom: 40px;
+}
+
+.btn {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+    background-color: #0056b3;
+}
+
+/* Styles pour la section des fonctionnalités */
+.features-section {
+    text-align: center;
+    font-family:'Montserrat', sans-serif;
+    letter-spacing: 2px;
+    margin-top: 0;
+    margin-left: 310px;
+    margin-bottom: 85px;
+    padding: 50px;
+    width: 1050px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    transition: 0.5s;
+}
+
+.feature-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.features-section h2{
+    font-weight: bold;
+    font-size: 35px;
+    margin-bottom: 50px;
+}
+
+.feature {
+    width: 28%;
+    margin: 0 15px;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.feature i {
+    font-size: 24px;
+}
+
+.feature h3 {
+    margin-top: 10px;
+}
+
+.feature p {
+    font-size: 14px;
+}
+
+.btn {
+    margin-top: 20px;
+}

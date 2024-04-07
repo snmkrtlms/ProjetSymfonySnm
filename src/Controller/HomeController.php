@@ -15,16 +15,4 @@ class HomeController extends AbstractController
     {
         return $this->render('home/index.html.twig');
     }
-
-    #[Route('/vue1', name: 'vue1')]
-    public function vue1()
-    {
-        return $this->render('home/vue1.html.twig');
-    }
-
-    #[Route('/vue2', name: 'vue2')]
-    public function vue2()
-    {
-        return $this->render('home/vue2.html.twig');
-    }
 }
