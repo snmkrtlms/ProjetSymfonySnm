@@ -105,53 +105,66 @@ body {
     transition: 0.5s;
 }
 
-/* cards pour les conseils */
 .card-container {
     display: flex;
     flex-wrap: wrap;
-    justify-content: center; /* Centre les cartes horizontalement */
 }
 
-.card{
-    flex: 0 0 calc(40% - 10px); /* Ajustez la largeur des cartes en fonction de vos besoins */
+.card-cons {
+    width: calc(50% - 20px); /* Ajuste la largeur des cartes pour qu'elles prennent exactement la moitié de la largeur du conteneur parent */
     margin: 10px;
-    border: 1px solid #ffffff;
+    border: 1px solid #ccc;
     border-radius: 5px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    background-color: rgb(249, 249, 249);
+    overflow: hidden;
+    background-color: #fff;
+    box-sizing: border-box; /* Assure que la largeur inclut les bordures */
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
 }
 
-.card-header {
-    background-color: rgb(40, 104, 229);
-    color: #fff;
-    padding: 5px;
-    border-top-left-radius: 5px;
-    border-top-right-radius: 5px;
+
+.card-content-cons{
+    display: flex;
 }
 
-.card-title {
-    font-size: 20px;
-    letter-spacing: 3px;
-    margin: 0;
-    padding: 15px;
-    font-family: 'Montserrat', sans-serif;
+.image {
+    flex: 0 0 40%; /* Ajuste la largeur de l'image selon vos besoins */
 }
 
-.card-body {
-    padding: 15px;
-    font-family: 'Montserrat', sans-serif;
-    font-size: 15px;
-    letter-spacing: 1px;
+.image img {
+    width: 100%;
+    height: auto;
 }
 
-ul {
-    list-style-type: none;
+.text {
+    flex: 1; /* Le texte prend le reste de l'espace disponible */
+    padding: 20px;
+}
+
+.title {
+    font-size: 18px;
+    margin-top: 0;
+}
+
+.description {
+    font-size: 14px;
+}
+
+.icon-list {
+    list-style: none;
     padding: 0;
 }
 
-li {
-    margin: 5px 0;
+.icon-list li {
+    margin-bottom: 5px;
+    font-size: 14px;
 }
+
+.icon-list li i {
+    margin-right: 10px;
+    color: #007bff; /* Couleur des icônes, changez selon vos besoins */
+}
+
 
 .tab-bord h3, #vue_graphique h3, #vue_conseils {
     font-family:'Montserrat', sans-serif;

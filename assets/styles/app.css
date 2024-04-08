@@ -129,7 +129,10 @@ label #sidebar_btn:hover{
 }
 /* Styles pour le hero-section */
 #check:checked ~ .hero-section{
-    margin-left: 20%;
+    margin-left: 210px;
+}
+#check:checked ~ .features-section{
+    margin-left: 210px;
 }
 
 #check{
@@ -137,6 +140,7 @@ label #sidebar_btn:hover{
 }
 .brand-name {
     font-family: 'Satisfy', cursive;
+    letter-spacing: 2px;
 }
 
 /* Style pour la flèche */
@@ -158,8 +162,8 @@ label #sidebar_btn:hover{
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: 14%;
-    margin-left: 26%;
+    margin-top: 140px;
+    margin-left: 300px;
     margin-bottom: 200px;
     padding: 50px;
     width: 1050px;
@@ -213,7 +217,7 @@ label #sidebar_btn:hover{
     font-family:'Montserrat', sans-serif;
     letter-spacing: 2px;
     margin-top: 0;
-    margin-left: 26%;
+    margin-left: 300px;
     margin-bottom: 85px;
     padding: 50px;
     width: 1050px;

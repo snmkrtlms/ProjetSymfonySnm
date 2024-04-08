@@ -8,20 +8,28 @@
         {% set titreIndex = 0 %}
         {% for conseil in conseils %}
             {% if conseil.categorie.nom not in displayedCategories %}
-                <div class="card">
-                    <div class="card-header">
-                        <h4 class="card-title">{{ titreConseil[titreIndex] }}</h4>
-                    </div>
-                    <div class="card-body">
-                        <ul>
-                            <li>{{ conseil.titre }}</li>
-                            <li>{{ conseil.contenu }}</li>
-                        </ul>
+                <div class="card-cons">
+                    <div class="card-content-cons">
+                        <div class="image">
+                            <img src="{{ asset('images/smile/' ~ conseil.imageCons) }}" alt="Description de l'image 1">
+                        </div>
+                        <div class="text">
+                            <h4 class="title">{{titreConseil[titreIndex]}}</h4>
+                            <p class="description">{{conseil.contenu}}</p>
+                            <ul class="icon-list">
+                                <li><i class="fas fa-check-circle"></i> Information 1</li>
+                                <li><i class="fas fa-check-circle"></i> Information 2</li>
+                                <li><i class="fas fa-check-circle"></i> Information 3</li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
+            
                 {% set displayedCategories = displayedCategories|merge([conseil.categorie.nom]) %}
                 {% set titreIndex = (titreIndex + 1) % titreConseil|length %}
             {% endif %}
         {% endfor %}
     </div>
 
+    
+    
